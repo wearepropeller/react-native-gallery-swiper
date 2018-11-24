@@ -14,8 +14,8 @@ Learn more about React Native with project examples along with Cyber Security an
 - [Props](#props)
 - [Scroll State and Events](#scroll-state-and-events)
 - [Example Project](#example-project)
-- [License](#license)
 - [Contribute](#contribute)
+- [License](#license)
 
 Improved and changed on top of `react-native-image-gallery`.
 
