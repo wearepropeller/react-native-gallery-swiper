@@ -15,6 +15,7 @@ Learn more about React Native with project examples along with Cyber Security an
 - [Scroll State and Events](#scroll-state-and-events)
 - [Example Project](#example-project)
 - [License](#license)
+- [Contribute](#contribute)
 
 Improved and changed on top of `react-native-image-gallery`.
 
@@ -136,6 +137,18 @@ $ cd react-native-gallery-swiper/example/
 	3. emulator running in separate terminal
 	4. npm run android
 
+## Contribute
+
+[Pull requests](https://github.com/Luehang/react-native-gallery-swiper/pulls) are welcomed.
+
+### Beginners
+
+Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
+
+### Contributors
+
+Contributors will be posted here.
+
 ## License
 
-MIT licensed, as found in the LICENSE file.
+MIT © [Lue Hang](https://luehangs.site), as found in the LICENSE file.
