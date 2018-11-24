@@ -11,7 +11,7 @@ const data = [
         title: "Lue Hang",
     },
     {
-        uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
+        source: { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg" },
         dimensions: { width: 1080, height: 1920 },
         thumbnail: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
         id: idGenerator(),
@@ -25,21 +25,21 @@ const data = [
         // dimensions: { width: 1080, height: 1920 },
     },
     {
-        uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg",
+        URI: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg",
         thumbnail: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg",
         id: idGenerator(),
         title: "Lue Hang",
         // dimensions: { width: 1080, height: 1920 },
     },
     {
-        uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg",
+        url: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg",
         thumbnail: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg",
         id: idGenerator(),
         title: "Lue Hang",
         // dimensions: { width: 1080, height: 1920 },
     },
     {
-        uri: "https://luehangs.site/pic-chat-app-images/adult-arm-art-326559.jpg",
+        URL: "https://luehangs.site/pic-chat-app-images/adult-arm-art-326559.jpg",
         thumbnail: "https://luehangs.site/pic-chat-app-images/adult-arm-art-326559.jpg",
         id: idGenerator(),
         title: "Lue Hang",
