@@ -122,7 +122,7 @@ export default class TransformableImage extends PureComponent {
             );
         } else {
             // eslint-disable-next-line no-console
-            console.warn("react-native-image-layout", "Please provide dimensions of your local images");
+            console.warn("react-native-gallery-swiper", "Please provide dimensions of your local images.");
         }
     }
 
