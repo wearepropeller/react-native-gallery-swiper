@@ -97,7 +97,13 @@ export default class TransformableImage extends PureComponent {
         if (!image) {
             return;
         }
-        const { uri, dimensions } = image;
+        const { dimensions } = image;
+        const uri = image.source && image.source.uri
+            ? image.source.uri : image.uri
+            ? image.uri : image.URI
+            ? image.URI : image.url
+            ? image.url : image.URL
+            ? image.URL : undefined;
 
         if (dimensions) {
             this.setState({ imageDimensions: dimensions });
@@ -162,7 +168,16 @@ export default class TransformableImage extends PureComponent {
         const imageProps = {
             ...this.props,
             imageLoaded,
-            source: image.source ? image.source : { uri: image.uri },
+            source: image.source
+                ? image.source : image.uri
+                ? { uri: image.uri } : image.URI
+                ? { uri: image.URI } : image.url
+                ? { uri: image.url } : image.URL
+                // eslint-disable-next-line no-console
+                ? { uri: image.URL } : console.warn(
+                    "react-native-gallery-swiper",
+                    "Please provide a valid image field in data images. Ex. source, uri, URI, url, URL"
+            ),
             style: [style, { backgroundColor: "transparent" }],
             resizeMode: resizeMode,
             onLoadStart: this.onLoadStart,
