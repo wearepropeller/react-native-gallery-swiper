@@ -44,11 +44,13 @@ export default class TransformableImage extends PureComponent {
             viewHeight: 0,
             imageLoaded: false,
             imageDimensions: props.image.dimensions,
-            keyAcumulator: 1
+            keyAcumulator: 1,
+            source: undefined
         };
     }
 
     componentWillMount () {
+        this.getImageSource(this.props.image);
         if (!this.state.imageDimensions) {
             this.getImageSize(this.props.image);
         }
@@ -62,6 +64,7 @@ export default class TransformableImage extends PureComponent {
         if (!sameImage(this.props.image, nextProps.image)) {
             // image source changed, clear last image's imageDimensions info if any
             this.setState({ imageDimensions: nextProps.image.dimensions, keyAcumulator: this.state.keyAcumulator + 1 });
+            this.getImageSource(nextProps.image);
             if (!nextProps.image.dimensions) { // if we don't have image dimensions provided in source
                 this.getImageSize(nextProps.image);
             }
@@ -132,6 +135,25 @@ export default class TransformableImage extends PureComponent {
         }
     }
 
+    getImageSource = (image) => {
+        const source = image.source
+            ? image.source : image.uri
+            ? { uri: image.uri } : image.URI
+            ? { uri: image.URI } : image.url
+            ? { uri: image.url } : image.URL
+            ? { uri: image.URL } : undefined;
+
+        if (source) {
+            this.setState({ source });
+        } else {
+            // eslint-disable-next-line no-console
+            console.warn(
+                "react-native-gallery-swiper",
+                "Please provide a valid image field in data images. Ex. source, uri, URI, url, URL"
+            );
+        }
+    }
+
     getViewTransformerInstance () {
         return this.viewTransformer;
     }
@@ -145,7 +167,7 @@ export default class TransformableImage extends PureComponent {
     }
 
     render () {
-        const { imageDimensions, viewWidth, viewHeight, error, keyAccumulator, imageLoaded } = this.state;
+        const { source, imageDimensions, viewWidth, viewHeight, error, keyAccumulator, imageLoaded } = this.state;
         const { style, image, imageComponent, resizeMode, enableTransform, enableScale, enableTranslate, onTransformGestureReleased, onViewTransformed } = this.props;
 
         let maxScale = 1;
@@ -168,16 +190,7 @@ export default class TransformableImage extends PureComponent {
         const imageProps = {
             ...this.props,
             imageLoaded,
-            source: image.source
-                ? image.source : image.uri
-                ? { uri: image.uri } : image.URI
-                ? { uri: image.URI } : image.url
-                ? { uri: image.url } : image.URL
-                // eslint-disable-next-line no-console
-                ? { uri: image.URL } : console.warn(
-                    "react-native-gallery-swiper",
-                    "Please provide a valid image field in data images. Ex. source, uri, URI, url, URL"
-            ),
+            source: source,
             style: [style, { backgroundColor: "transparent" }],
             resizeMode: resizeMode,
             onLoadStart: this.onLoadStart,
