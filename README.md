@@ -76,7 +76,7 @@ Props | Description | Type | Default
 `initialPage` | Index of image to be displayed first. | `number` | `0`
 `imageComponent` | Custom function to render your images. 1st param is the **image props** and 2nd is its **dimensions**. | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
-`flatListProps` | Props to be passed to the underlying `FlatList`. | `object` | `{windowSize: 3}`
+`flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `onPageSelected` | Fired with the index of page that has been selected. | `Function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). | `Function`
