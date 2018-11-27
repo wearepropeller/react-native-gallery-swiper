@@ -89,6 +89,8 @@ Props | Description | Type | Default
 `onSingleTapConfirmed` | Executed after a single tap. | `Function`
 `onLongPress` | Executed after a long press. | `Function`
 
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+
 ## Scroll state and events
 
 * `onPageScroll` : (event) => {}. 
@@ -150,6 +152,14 @@ $ cd react-native-gallery-swiper/example/
 ### Beginners
 
 Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
+
+### Author
+
+<a href="https://www.facebook.com/lue.hang">
+<img src="https://luehangs.site/images/lue-hang2018-square.jpg" style="height: 100px; width: 100px; border-radius: 100%;"/>
+</a>
+
+[Lue Hang](https://www.facebook.com/lue.hang)
 
 ### Contributors
 
