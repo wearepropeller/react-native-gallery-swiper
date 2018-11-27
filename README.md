@@ -156,7 +156,7 @@ Not sure where to start, or a beginner? Take a look at the [issues page](https:/
 ### Author
 
 <a href="https://www.facebook.com/lue.hang">
-<img src="https://luehangs.site/images/lue-hang2018-square.jpg" style="height: 100px; width: 100px; border-radius: 100%;"/>
+<img src="https://www.luehangs.site/images/lue-hang2018-circle-150px.png"/>
 </a>
 
 [Lue Hang](https://www.facebook.com/lue.hang)
