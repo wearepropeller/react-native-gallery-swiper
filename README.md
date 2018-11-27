@@ -1,4 +1,4 @@
-# react-native-gallery-swiper
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/react-native-gallery-swiper-main.jpg" alt="react-native-gallery-swiper"/></a>
 
 > An easy and simple to use React Native component to render an image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android.
 
