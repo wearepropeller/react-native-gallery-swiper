@@ -29,11 +29,16 @@ export function maxDistance (touchBank, ofCurrent) {
     return max;
 }
 
-export function pinchDistance (touchHistory, touchesChangedAfter, ofCurrent) {
+export function pinchDistance (
+    touchHistory,
+    touchesChangedAfter,
+    ofCurrent
+) {
     let touchBank = touchHistory.touchBank;
     if (touchHistory.numberActiveTouches > 1) {
         let filteredTouchBank = touchBank.filter((touchTrack) => {
-            return touchTrack && touchTrack.currentTimeStamp >= touchesChangedAfter;
+            return touchTrack &&
+                touchTrack.currentTimeStamp >= touchesChangedAfter;
         });
         return maxDistance(filteredTouchBank, ofCurrent);
     }

@@ -1,9 +1,14 @@
 import React from "react";
-import ReactNative, { View, Animated, Easing, NativeModules } from "react-native";
+import ReactNative, {
+    View, Animated, Easing, NativeModules
+} from "react-native";
 import Scroller from "../Scroller";
 import PropTypes from "prop-types";
 import { createResponder } from "../GestureResponder";
-import { Rect, Transform, transformedRect, availableTranslateSpace, fitCenterRect, alignedRect, getTransform } from "./TransformUtils";
+import {
+    Rect, Transform, transformedRect, availableTranslateSpace,
+    fitCenterRect, alignedRect, getTransform
+} from "./TransformUtils";
 
 export default class ViewTransformer extends React.Component {
     static Rect = Rect;
@@ -104,19 +109,22 @@ export default class ViewTransformer extends React.Component {
             onResponderGrant: this.onResponderGrant,
             onResponderRelease: this.onResponderRelease,
             onResponderTerminate: this.onResponderRelease,
-            onResponderTerminationRequest: (evt, gestureState) => false, // Do not allow parent view to intercept gesture
+            // Do not allow parent view to intercept gesture
+            onResponderTerminationRequest: (evt, gestureState) => false,
             onResponderSingleTapConfirmed: (evt, gestureState) => {
-                this.props.onSingleTapConfirmed && this.props.onSingleTapConfirmed();
+                this.props.onSingleTapConfirmed &&
+                    this.props.onSingleTapConfirmed();
             }
         });
     }
 
     componentDidUpdate (prevProps, prevState) {
-        this.props.onViewTransformed && this.props.onViewTransformed({
-            scale: this.state.scale,
-            translateX: this.state.translateX,
-            translateY: this.state.translateY
-        });
+        this.props.onViewTransformed &&
+            this.props.onViewTransformed({
+                scale: this.state.scale,
+                translateX: this.state.translateX,
+                translateY: this.state.translateY
+            });
     }
 
     componentWillUnmount () {
@@ -222,11 +230,12 @@ export default class ViewTransformer extends React.Component {
     }
 
     onResponderRelease (evt, gestureState) {
-        let handled = this.props.onTransformGestureReleased && this.props.onTransformGestureReleased({
-            scale: this.state.scale,
-            translateX: this.state.translateX,
-            translateY: this.state.translateY
-        });
+        let handled = this.props.onTransformGestureReleased &&
+            this.props.onTransformGestureReleased({
+                scale: this.state.scale,
+                translateX: this.state.translateX,
+                translateY: this.state.translateY
+            });
         if (handled) {
             return;
         }
@@ -260,18 +269,23 @@ export default class ViewTransformer extends React.Component {
         let startX = 0;
         let startY = 0;
         let maxX, minX, maxY, minY;
-        let availablePanDistance = availableTranslateSpace(this.transformedContentRect(), this.viewPortRect());
+        let availablePanDistance = availableTranslateSpace(
+            this.transformedContentRect(),
+            this.viewPortRect()
+        );
         if (vx > 0) {
             minX = 0;
             if (availablePanDistance.left > 0) {
-                maxX = availablePanDistance.left + this.props.maxOverScrollDistance;
+                maxX = availablePanDistance.left +
+                    this.props.maxOverScrollDistance;
             } else {
                 maxX = 0;
             }
         } else {
             maxX = 0;
             if (availablePanDistance.right > 0) {
-                minX = -availablePanDistance.right - this.props.maxOverScrollDistance;
+                minX = -availablePanDistance.right -
+                    this.props.maxOverScrollDistance;
             } else {
                 minX = 0;
             }
@@ -279,14 +293,16 @@ export default class ViewTransformer extends React.Component {
         if (vy > 0) {
             minY = 0;
             if (availablePanDistance.top > 0) {
-                maxY = availablePanDistance.top + this.props.maxOverScrollDistance;
+                maxY = availablePanDistance.top +
+                    this.props.maxOverScrollDistance;
             } else {
                 maxY = 0;
             }
         } else {
             maxY = 0;
             if (availablePanDistance.bottom > 0) {
-                minY = -availablePanDistance.bottom - this.props.maxOverScrollDistance;
+                minY = -availablePanDistance.bottom -
+                    this.props.maxOverScrollDistance;
             } else {
                 minY = 0;
             }
@@ -329,7 +345,10 @@ export default class ViewTransformer extends React.Component {
     }
 
     applyResistance (dx, dy) {
-        let availablePanDistance = availableTranslateSpace(this.transformedContentRect(), this.viewPortRect());
+        let availablePanDistance = availableTranslateSpace(
+            this.transformedContentRect(),
+            this.viewPortRect()
+        );
 
         if ((dx > 0 && availablePanDistance.left < 0) ||
         (dx < 0 && availablePanDistance.right < 0)) {
@@ -362,12 +381,19 @@ export default class ViewTransformer extends React.Component {
         this.state.animator.addListener((state) => {
             let progress = state.value;
 
-            let left = fromRect.left + (targetRect.left - fromRect.left) * progress;
-            let right = fromRect.right + (targetRect.right - fromRect.right) * progress;
-            let top = fromRect.top + (targetRect.top - fromRect.top) * progress;
-            let bottom = fromRect.bottom + (targetRect.bottom - fromRect.bottom) * progress;
+            let left = fromRect.left +
+                (targetRect.left - fromRect.left) * progress;
+            let right = fromRect.right +
+                (targetRect.right - fromRect.right) * progress;
+            let top = fromRect.top +
+                (targetRect.top - fromRect.top) * progress;
+            let bottom = fromRect.bottom +
+                (targetRect.bottom - fromRect.bottom) * progress;
 
-            let transform = getTransform(this.contentRect(), new Rect(left, top, right, bottom));
+            let transform = getTransform(
+                this.contentRect(),
+                new Rect(left, top, right, bottom)
+            );
             this.updateTransform(transform);
         });
 
@@ -417,6 +443,9 @@ export default class ViewTransformer extends React.Component {
     }
 
     getAvailableTranslateSpace () {
-        return availableTranslateSpace(this.transformedContentRect(), this.viewPortRect());
+        return availableTranslateSpace(
+            this.transformedContentRect(),
+            this.viewPortRect()
+        );
     }
 }

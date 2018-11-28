@@ -1,14 +1,18 @@
 "use strict";
 
 import {InteractionManager} from "react-native";
-import TouchHistoryMath from "./TouchHistoryMath"; // copied from react/lib/TouchHistoryMath.js
+import TouchHistoryMath from "./TouchHistoryMath";
 import {pinchDistance} from "./TouchDistanceMath";
 import TimerMixin from "react-timer-mixin";
 
-const currentCentroidXOfTouchesChangedAfter = TouchHistoryMath.currentCentroidXOfTouchesChangedAfter;
-const currentCentroidYOfTouchesChangedAfter = TouchHistoryMath.currentCentroidYOfTouchesChangedAfter;
-const previousCentroidXOfTouchesChangedAfter = TouchHistoryMath.previousCentroidXOfTouchesChangedAfter;
-const previousCentroidYOfTouchesChangedAfter = TouchHistoryMath.previousCentroidYOfTouchesChangedAfter;
+const currentCentroidXOfTouchesChangedAfter =
+    TouchHistoryMath.currentCentroidXOfTouchesChangedAfter;
+const currentCentroidYOfTouchesChangedAfter =
+    TouchHistoryMath.currentCentroidYOfTouchesChangedAfter;
+const previousCentroidXOfTouchesChangedAfter =
+    TouchHistoryMath.previousCentroidXOfTouchesChangedAfter;
+const previousCentroidYOfTouchesChangedAfter =
+    TouchHistoryMath.previousCentroidYOfTouchesChangedAfter;
 const currentCentroidX = TouchHistoryMath.currentCentroidX;
 const currentCentroidY = TouchHistoryMath.currentCentroidY;
 
@@ -28,7 +32,7 @@ function initializeGestureState (gestureState) {
     gestureState.vx = 0;
     gestureState.vy = 0;
     gestureState.numberActiveTouches = 0;
-  // All `gestureState` accounts for timeStamps up until:
+    // All `gestureState` accounts for timeStamps up until:
     gestureState._accountsForMovesUpTo = 0;
 
     gestureState.previousMoveX = 0;
@@ -53,8 +57,8 @@ function updateGestureStateOnMove (gestureState, touchHistory, e) {
     gestureState.moveX = x;
     gestureState.moveY = y;
 
-  // TODO: This must be filtered intelligently.
-  // const dt = touchHistory.mostRecentTimeStamp - movedAfter;
+    // TODO: This must be filtered intelligently.
+    // const dt = touchHistory.mostRecentTimeStamp - movedAfter;
     const dt = convertToMillisecIfNeeded(touchHistory.mostRecentTimeStamp - movedAfter);
     gestureState.vx = dx / dt;
     gestureState.vy = dy / dt;
@@ -115,7 +119,7 @@ export default function create (config) {
         handle: null
     };
     const gestureState = {
-    // Useful for debugging
+        // Useful for debugging
         stateID: Math.random()
     };
     initializeGestureState(gestureState);
@@ -126,46 +130,48 @@ export default function create (config) {
             DEV && console.log("onStartShouldSetResponder...");
             cancelSingleTapConfirm(gestureState);
             return config.onStartShouldSetResponder ?
-        config.onStartShouldSetResponder(e, gestureState) :
-        false;
+                config.onStartShouldSetResponder(e, gestureState) :
+                false;
         },
         onMoveShouldSetResponder: function (e) {
             // eslint-disable-next-line no-console
             DEV && console.log("onMoveShouldSetResponder...");
 
-            return config.onMoveShouldSetResponder && effectiveMove(config, gestureState) ?
-        config.onMoveShouldSetResponder(e, gestureState) :
-        false;
+            return config.onMoveShouldSetResponder &&
+                effectiveMove(config, gestureState) ?
+                    config.onMoveShouldSetResponder(e, gestureState) :
+                    false;
         },
         onStartShouldSetResponderCapture: function (e) {
             // eslint-disable-next-line no-console
             DEV && console.log("onStartShouldSetResponderCapture...");
             cancelSingleTapConfirm(gestureState);
-      // TODO: Actually, we should reinitialize the state any time
-      // touches.length increases from 0 active to > 0 active.
+            // TODO: Actually, we should reinitialize the state any time
+            // touches.length increases from 0 active to > 0 active.
             if (e.nativeEvent.touches.length === 1) {
                 initializeGestureState(gestureState);
             }
             gestureState.numberActiveTouches = e.touchHistory.numberActiveTouches;
             return config.onStartShouldSetResponderCapture ?
-        config.onStartShouldSetResponderCapture(e, gestureState) :
-        false;
+                config.onStartShouldSetResponderCapture(e, gestureState) :
+                false;
         },
 
         onMoveShouldSetResponderCapture: function (e) {
             // eslint-disable-next-line no-console
             DEV && console.log("onMoveShouldSetResponderCapture...");
             const touchHistory = e.touchHistory;
-      // Responder system incorrectly dispatches should* to current responder
-      // Filter out any touch moves past the first one - we would have
-      // already processed multi-touch geometry during the first event.
+            // Responder system incorrectly dispatches should* to current responder
+            // Filter out any touch moves past the first one - we would have
+            // already processed multi-touch geometry during the first event.
             if (gestureState._accountsForMovesUpTo === touchHistory.mostRecentTimeStamp) {
                 return false;
             }
             updateGestureStateOnMove(gestureState, touchHistory, e);
-            return config.onMoveShouldSetResponderCapture && effectiveMove(config, gestureState) ?
-        config.onMoveShouldSetResponderCapture(e, gestureState) :
-        false;
+            return config.onMoveShouldSetResponderCapture &&
+                effectiveMove(config, gestureState) ?
+                    config.onMoveShouldSetResponderCapture(e, gestureState) :
+                    false;
         },
 
         onResponderGrant: function (e) {
@@ -183,10 +189,10 @@ export default function create (config) {
             if (config.onResponderGrant) {
                 config.onResponderGrant(e, gestureState);
             }
-      // TODO: t7467124 investigate if this can be removed
+            // TODO: t7467124 investigate if this can be removed
             return config.onShouldBlockNativeResponder === undefined ?
-        true :
-        config.onShouldBlockNativeResponder();
+                true :
+                config.onShouldBlockNativeResponder();
         },
 
         onResponderReject: function (e) {
@@ -199,22 +205,28 @@ export default function create (config) {
         onResponderRelease: function (e) {
             if (gestureState.singleTapUp) {
                 if (gestureState._lastSingleTapUp) {
-                    if (convertToMillisecIfNeeded(e.touchHistory.mostRecentTimeStamp - gestureState._lastReleaseTimestamp) < TAP_UP_TIME_THRESHOLD) {
-                      gestureState.doubleTapUp = true;
-                  }
+                    if (
+                        convertToMillisecIfNeeded(
+                            e.touchHistory.mostRecentTimeStamp -
+                            gestureState._lastReleaseTimestamp
+                        ) < TAP_UP_TIME_THRESHOLD
+                    ) {
+                        gestureState.doubleTapUp = true;
+                    }
                 }
                 gestureState._lastSingleTapUp = true;
 
-        // schedule to confirm single tap
+                // schedule to confirm single tap
                 if (!gestureState.doubleTapUp) {
                     const snapshot = Object.assign({}, gestureState);
                     const timeoutId = TimerMixin.setTimeout(() => {
-                      if (gestureState._singleTapConfirmId === timeoutId) {
-                        // eslint-disable-next-line no-console
-                        DEV && console.log("onResponderSingleTapConfirmed...");
-                        config.onResponderSingleTapConfirmed && config.onResponderSingleTapConfirmed(e, snapshot);
-                    }
-                  }, TAP_UP_TIME_THRESHOLD);
+                        if (gestureState._singleTapConfirmId === timeoutId) {
+                            // eslint-disable-next-line no-console
+                            DEV && console.log("onResponderSingleTapConfirmed...");
+                            config.onResponderSingleTapConfirmed &&
+                            config.onResponderSingleTapConfirmed(e, snapshot);
+                        }
+                    }, TAP_UP_TIME_THRESHOLD);
                     gestureState._singleTapConfirmId = timeoutId;
                 }
             }
@@ -239,13 +251,13 @@ export default function create (config) {
 
         onResponderMove: function (e) {
             const touchHistory = e.touchHistory;
-      // Guard against the dispatch of two touch moves when there are two
-      // simultaneously changed touches.
+            // Guard against the dispatch of two touch moves when there are two
+            // simultaneously changed touches.
             if (gestureState._accountsForMovesUpTo === touchHistory.mostRecentTimeStamp) {
                 return;
             }
-      // Filter out any touch moves past the first one - we would have
-      // already processed multi-touch geometry during the first event.
+            // Filter out any touch moves past the first one - we would have
+            // already processed multi-touch geometry during the first event.
             updateGestureStateOnMove(gestureState, touchHistory, e);
 
             // eslint-disable-next-line no-console
@@ -260,10 +272,13 @@ export default function create (config) {
             gestureState.numberActiveTouches = touchHistory.numberActiveTouches;
 
             if (touchHistory.numberActiveTouches > 0 ||
-        convertToMillisecIfNeeded(touchHistory.mostRecentTimeStamp - gestureState._grantTimestamp) > TAP_UP_TIME_THRESHOLD ||
-        Math.abs(gestureState.dx) >= TAP_MOVE_THRESHOLD ||
-        Math.abs(gestureState.dy) >= TAP_MOVE_THRESHOLD
-      ) {
+                convertToMillisecIfNeeded(
+                    touchHistory.mostRecentTimeStamp -
+                    gestureState._grantTimestamp
+                ) > TAP_UP_TIME_THRESHOLD ||
+                Math.abs(gestureState.dx) >= TAP_MOVE_THRESHOLD ||
+                Math.abs(gestureState.dy) >= TAP_MOVE_THRESHOLD
+            ) {
                 gestureState._singleTabFailed = true;
             }
             if (!gestureState._singleTabFailed) {
@@ -280,7 +295,8 @@ export default function create (config) {
             // eslint-disable-next-line no-console
             DEV && console.log("onResponderTerminate...");
             clearInteractionHandle(interactionState);
-            config.onResponderTerminate && config.onResponderTerminate(e, gestureState);
+            config.onResponderTerminate &&
+            config.onResponderTerminate(e, gestureState);
             initializeGestureState(gestureState);
         },
 
@@ -288,15 +304,16 @@ export default function create (config) {
             // eslint-disable-next-line no-console
             DEV && console.log("onResponderTerminationRequest...");
             return config.onResponderTerminationRequest ?
-        config.onResponderTerminationRequest(e.gestureState) :
-        true;
+                config.onResponderTerminationRequest(e.gestureState) :
+                true;
         }
     };
     return {...handlers};
 }
 
 /**
- * On Android devices, the default gesture responder is too sensitive that a single tap(no move intended) may trigger a move event.
+ * On Android devices, the default gesture responder is too
+ * sensitive that a single tap(no move intended) may trigger a move event.
  * We can use a moveThreshold config to avoid those unwanted move events.
  * @param config
  * @param gestureState
@@ -304,7 +321,8 @@ export default function create (config) {
  */
 function effectiveMove (config, gestureState) {
     if (gestureState.numberActiveTouches > 1) {
-    // on iOS simulator, a pinch gesture(move with alt pressed) will not change gestureState.dx(always 0)
+        // on iOS simulator, a pinch gesture(move with alt pressed)
+        // will not change gestureState.dx(always 0)
         return true;
     }
 
@@ -312,7 +330,10 @@ function effectiveMove (config, gestureState) {
     if (typeof config.moveThreshold === "number") {
         moveThreshold = config.minMoveDistance;
     }
-    if (Math.abs(gestureState.dx) >= moveThreshold || Math.abs(gestureState.dy) >= moveThreshold) {
+    if (
+        Math.abs(gestureState.dx) >= moveThreshold ||
+        Math.abs(gestureState.dy) >= moveThreshold
+    ) {
         return true;
     }
     return false;

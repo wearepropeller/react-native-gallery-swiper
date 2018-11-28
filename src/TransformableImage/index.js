@@ -7,9 +7,14 @@ export default class TransformableImage extends PureComponent {
     static propTypes = {
         image: PropTypes.shape({
             uri: PropTypes.string,
-            dimensions: PropTypes.shape({ width: PropTypes.number, height: PropTypes.number })
+            dimensions: PropTypes.shape({
+                width: PropTypes.number,
+                height: PropTypes.number
+            })
         }).isRequired,
-        style: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+        style: ViewPropTypes
+            ? ViewPropTypes.style
+            : View.propTypes.style,
         onLoad: PropTypes.func,
         onLoadStart: PropTypes.func,
         enableTransform: PropTypes.bool,
@@ -36,7 +41,8 @@ export default class TransformableImage extends PureComponent {
         this.onLayout = this.onLayout.bind(this);
         this.onLoad = this.onLoad.bind(this);
         this.onLoadStart = this.onLoadStart.bind(this);
-        this.getViewTransformerInstance = this.getViewTransformerInstance.bind(this);
+        this.getViewTransformerInstance =
+            this.getViewTransformerInstance.bind(this);
         this.renderError = this.renderError.bind(this);
 
         this.state = {
@@ -62,10 +68,15 @@ export default class TransformableImage extends PureComponent {
 
     componentWillReceiveProps (nextProps) {
         if (!sameImage(this.props.image, nextProps.image)) {
-            // image source changed, clear last image's imageDimensions info if any
-            this.setState({ imageDimensions: nextProps.image.dimensions, keyAcumulator: this.state.keyAcumulator + 1 });
+            // image source changed, clear last
+            // image's imageDimensions info if any
+            this.setState({
+                imageDimensions: nextProps.image.dimensions,
+                keyAcumulator: this.state.keyAcumulator + 1
+            });
             this.getImageSource(nextProps.image);
-            if (!nextProps.image.dimensions) { // if we don't have image dimensions provided in source
+            // if we don't have image dimensions provided in source
+            if (!nextProps.image.dimensions) {
                 this.getImageSize(nextProps.image);
             }
         }
@@ -118,10 +129,16 @@ export default class TransformableImage extends PureComponent {
                 uri,
                 (width, height) => {
                     if (width && height) {
-                        if (this.state.imageDimensions && this.state.imageDimensions.width === width && this.state.imageDimensions.height === height) {
+                        if (
+                            this.state.imageDimensions &&
+                            this.state.imageDimensions.width === width &&
+                            this.state.imageDimensions.height === height
+                        ) {
                             // no need to update state
                         } else {
-                            this._mounted && this.setState({ imageDimensions: { width, height } });
+                            this._mounted && this.setState({
+                                imageDimensions: { width, height }
+                            });
                         }
                     }
                 },
@@ -131,7 +148,10 @@ export default class TransformableImage extends PureComponent {
             );
         } else {
             // eslint-disable-next-line no-console
-            console.warn("react-native-gallery-swiper", "Please provide dimensions of your local images.");
+            console.warn(
+                "react-native-gallery-swiper",
+                "Please provide dimensions of your local images."
+            );
         }
     }
 
@@ -149,7 +169,8 @@ export default class TransformableImage extends PureComponent {
             // eslint-disable-next-line no-console
             console.warn(
                 "react-native-gallery-swiper",
-                "Please provide a valid image field in data images. Ex. source, uri, URI, url, URL"
+                "Please provide a valid image field in " +
+                "data images. Ex. source, uri, URI, url, URL"
             );
         }
     }
@@ -160,15 +181,34 @@ export default class TransformableImage extends PureComponent {
 
     renderError () {
         return (this.props.errorComponent && this.props.errorComponent()) || (
-            <View style={{ flex: 1, backgroundColor: "black", alignItems: "center", justifyContent: "center" }}>
-                 <Text style={{ color: "white", fontSize: 15, fontStyle: "italic" }}>This image cannot be displayed...</Text>
+            <View style={{
+                flex: 1,
+                backgroundColor: "black",
+                alignItems: "center",
+                justifyContent: "center"
+            }}>
+                <Text
+                    style={{
+                        color: "white",
+                        fontSize: 15,
+                        fontStyle: "italic"
+                    }}>
+                    This image cannot be displayed...
+                </Text>
             </View>
         );
     }
 
     render () {
-        const { source, imageDimensions, viewWidth, viewHeight, error, keyAccumulator, imageLoaded } = this.state;
-        const { style, image, imageComponent, resizeMode, enableTransform, enableScale, enableTranslate, onTransformGestureReleased, onViewTransformed } = this.props;
+        const {
+            source, imageDimensions, viewWidth, viewHeight,
+            error, keyAccumulator, imageLoaded
+        } = this.state;
+        const {
+            style, imageComponent, resizeMode, enableTransform,
+            enableScale, enableTranslate, onTransformGestureReleased,
+            onViewTransformed
+        } = this.props;
 
         let maxScale = 1;
         let contentAspectRatio;
@@ -205,8 +245,11 @@ export default class TransformableImage extends PureComponent {
         return (
             <ViewTransformer
                 ref={(component) => (this.viewTransformer = component)}
-                key={"viewTransformer#" + keyAccumulator} // when image source changes, we should use a different node to avoid reusing previous transform state
-                enableTransform={enableTransform && imageLoaded} // disable transform until image is loaded
+                // when image source changes, we should use a different
+                // node to avoid reusing previous transform state
+                key={"viewTransformer#" + keyAccumulator}
+                // disable transform until image is loaded
+                enableTransform={enableTransform && imageLoaded}
                 enableScale={enableScale}
                 enableTranslate={enableTranslate}
                 enableResistance={true}

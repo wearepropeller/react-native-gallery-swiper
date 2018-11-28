@@ -74,16 +74,17 @@ function signum (number) {
 }
 
 export default class Scroller {
-  /**
-   *
-   * @param flywheel specify whether or not to support progressive "flywheel" behavior in flinging.
-   */
+    /**
+     *
+     * @param flywheel specify whether or not to
+     * support progressive "flywheel" behavior in flinging.
+     */
     constructor (flywheel, onScrollCallback) {
         this.mCurrX = 0;
         this.mCurrY = 0;
         this.mFinished = true;
         this.mInterpolator = ViscousFluidInterpolator;
-    // this.mPpi = PixelRatio.get() * 160;
+        // this.mPpi = PixelRatio.get() * 160;
         this.mPpi = 160;
         this.mDeceleration = this.computeDeceleration(SCROLL_FRICTION);
         this.mFlywheel = flywheel;
@@ -98,46 +99,51 @@ export default class Scroller {
         return GRAVITY_EARTH * 39.37 * this.mPpi * friction;
     }
 
-  /**
-   * Returns whether the scroller has finished scrolling.
-   * @returns {Boolean} True if the scroller has finished scrolling, false otherwise.
-   */
+    /**
+     * Returns whether the scroller has finished scrolling.
+     * @returns {Boolean} True if the scroller has
+     * finished scrolling, false otherwise.
+     */
     isFinished () {
         return this.mFinished;
     }
 
-  /**
-   * Force the finished field to a particular value.
-   * @param finished The new finished value.
-   */
+    /**
+     * Force the finished field to a particular value.
+     * @param finished The new finished value.
+     */
     forceFinished (finished) {
         this.mFinished = finished;
     }
 
-  /**
-   * Returns the current X offset in the scroll.
-   * @returns {*} The new X offset as an absolute distance from the origin.
-   */
+    /**
+     * Returns the current X offset in the scroll.
+     * @returns {*} The new X offset as an
+     * absolute distance from the origin.
+     */
     getCurrX () {
         return this.mCurrX;
     }
 
-  /**
-   * Returns the current Y offset in the scroll.
-   * @returns {*} The new Y offset as an absolute distance from the origin.
-   */
+    /**
+     * Returns the current Y offset in the scroll.
+     * @returns {*} The new Y offset as an
+     * absolute distance from the origin.
+     */
     getCurrY () {
         return this.mCurrY;
     }
 
     getCurrVelocity () {
         return this.mMode === FLING_MODE ?
-            this.mCurrVelocity : this.mVelocity - this.mDeceleration * this.timePassed() / 2000.0;
+            this.mCurrVelocity :
+            this.mVelocity - this.mDeceleration * this.timePassed() / 2000.0;
     }
 
     computeScrollOffset () {
         if (this.mFinished) {
-            this.onScrollCallback && this.onScrollCallback(0, 0, this);
+            this.onScrollCallback &&
+                this.onScrollCallback(0, 0, this);
             return false;
         }
 
@@ -146,7 +152,9 @@ export default class Scroller {
         if (timePassed < this.mDuration) {
             switch (this.mMode) {
             case SCROLL_MODE:
-                let x = this.mInterpolator.getInterpolation(timePassed * this.mDurationReciprocal);
+                let x = this.mInterpolator.getInterpolation(
+                    timePassed * this.mDurationReciprocal
+                );
                 this.mCurrX = this.mStartX + Math.round(x * this.mDeltaX);
                 this.mCurrY = this.mStartY + Math.round(x * this.mDeltaY);
                 break;
@@ -167,17 +175,24 @@ export default class Scroller {
 
                 this.mCurrVelocity = velocityCoef * this.mDistance / this.mDuration * 1000;
 
-                this.mCurrX = this.mStartX + Math.round(distanceCoef * (this.mFinalX - this.mStartX));
-          // Pin to mMinX <= mCurrX <= mMaxX
-          // this.mCurrX = Math.min(this.mCurrX, this.mMaxX);
-          // this.mCurrX = Math.max(this.mCurrX, this.mMinX);
+                this.mCurrX = this.mStartX + Math.round(
+                    distanceCoef * (this.mFinalX - this.mStartX)
+                );
+                // Pin to mMinX <= mCurrX <= mMaxX
+                // this.mCurrX = Math.min(this.mCurrX, this.mMaxX);
+                // this.mCurrX = Math.max(this.mCurrX, this.mMinX);
 
-                this.mCurrY = this.mStartY + Math.round(distanceCoef * (this.mFinalY - this.mStartY));
-          // Pin to mMinY <= mCurrY <= mMaxY
+                this.mCurrY = this.mStartY + Math.round(
+                    distanceCoef * (this.mFinalY - this.mStartY)
+                );
+                // Pin to mMinY <= mCurrY <= mMaxY
                 this.mCurrY = Math.min(this.mCurrY, this.mMaxY);
                 this.mCurrY = Math.max(this.mCurrY, this.mMinY);
 
-                if (this.mCurrX === this.mFinalX && this.mCurrY === this.mFinalY) {
+                if (
+                    this.mCurrX === this.mFinalX &&
+                    this.mCurrY === this.mFinalY
+                ) {
                     this.mFinished = true;
                 }
 
@@ -222,21 +237,23 @@ export default class Scroller {
         this.performAnimation();
     }
 
-  /**
-   * Start scrolling based on a fling gesture. The distance travelled will
-   * depend on the initial velocity of the fling.
-   * @param startX
-   * @param startY
-   * @param velocityX Initial velocity of the fling (X) measured in dp or pt per second
-   * @param velocityY Initial velocity of the fling (Y) measured in dp or pt per second
-   * @param minX
-   * @param maxX
-   * @param minY
-   * @param maxY
-   */
-    fling (startX, startY, velocityX, velocityY,
-        minX, maxX, minY, maxY) {
-    // Continue a scroll or fling in progress
+    /**
+     * Start scrolling based on a fling gesture. The distance travelled will
+     * depend on the initial velocity of the fling.
+     * @param startX
+     * @param startY
+     * @param velocityX Initial velocity of the fling (X) measured in dp or pt per second
+     * @param velocityY Initial velocity of the fling (Y) measured in dp or pt per second
+     * @param minX
+     * @param maxX
+     * @param minY
+     * @param maxY
+     */
+    fling (
+        startX, startY, velocityX, velocityY,
+        minX, maxX, minY, maxY
+    ) {
+        // Continue a scroll or fling in progress
         if (this.mFlywheel && !this.mFinished) {
             let oldVel = this.getCurrVelocity();
 
@@ -249,8 +266,10 @@ export default class Scroller {
 
             let oldVelocityX = ndx * oldVel;
             let oldVelocityY = ndy * oldVel;
-            if (signum(velocityX) === signum(oldVelocityX) &&
-        signum(velocityY) === signum(oldVelocityY)) {
+            if (
+                signum(velocityX) === signum(oldVelocityX) &&
+                signum(velocityY) === signum(oldVelocityY)
+            ) {
                 velocityX += oldVelocityX;
                 velocityY += oldVelocityY;
             }
@@ -295,7 +314,10 @@ export default class Scroller {
     }
 
     getSplineDeceleration (velocity) {
-        return Math.log(INFLEXION * Math.abs(velocity) / (this.mFlingFriction * this.mPhysicalCoeff));
+        return Math.log(
+            INFLEXION * Math.abs(velocity) /
+            (this.mFlingFriction * this.mPhysicalCoeff)
+        );
     }
 
     getSplineFlingDuration (velocity) {
@@ -307,7 +329,8 @@ export default class Scroller {
     getSplineFlingDistance (velocity) {
         var l = this.getSplineDeceleration(velocity);
         var decelMinusOne = DECELERATION_RATE - 1.0;
-        return this.mFlingFriction * this.mPhysicalCoeff * Math.exp(DECELERATION_RATE / decelMinusOne * l);
+        return this.mFlingFriction * this.mPhysicalCoeff *
+            Math.exp(DECELERATION_RATE / decelMinusOne * l);
     }
 
     performAnimation () {
@@ -347,6 +370,7 @@ export default class Scroller {
     }
 
     debugInfo () {
-        return "cur=" + this.mCurrX + " " + this.mCurrY + ", final=" + this.mFinalX + " " + this.mFinalY;
+        return "cur=" + this.mCurrX + " " + this.mCurrY +
+            ", final=" + this.mFinalX + " " + this.mFinalY;
     }
 }

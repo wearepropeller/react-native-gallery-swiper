@@ -38,7 +38,12 @@ export default class Rect {
     }
 
     copy () {
-        return new Rect(this.left, this.top, this.right, this.bottom);
+        return new Rect(
+            this.left,
+            this.top,
+            this.right,
+            this.bottom
+        );
     }
 
     equals (rect, epsilon) {
