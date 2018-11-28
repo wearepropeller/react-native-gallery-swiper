@@ -1,6 +1,6 @@
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/react-native-gallery-swiper-main.jpg" alt="react-native-gallery-swiper"/></a>
 
-> An easy and simple to use React Native component to render an image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible by [Lue Hang](https://www.facebook.com/lue.hang) (the author) along with costly maintenance and updates.
+> An easy and simple to use React Native component to render an image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
 
@@ -159,7 +159,7 @@ Not sure where to start, or a beginner? Take a look at the [issues page](https:/
 <img src="https://www.luehangs.site/images/lue-hang2018-circle-150px.png"/>
 </a>
 
-Free and made possible by [Lue Hang](https://www.facebook.com/lue.hang) (the author) along with costly maintenance and updates.
+Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
 ### Contributors
 
