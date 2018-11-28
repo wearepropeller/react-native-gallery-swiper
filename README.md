@@ -48,8 +48,8 @@ render() {
         <GallerySwiper
             style={{ flex: 1, backgroundColor: "black" }}
             images={[
-                // Version *1.1.0 update: Can be used with
-                // different image object fieldnames.
+                // Version *1.1.0 update (or greater versions): 
+                // Can be used with different image object fieldnames.
                 // Ex. source, source.uri, uri, URI, url, URL
                 { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg" },
                 { source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } },
