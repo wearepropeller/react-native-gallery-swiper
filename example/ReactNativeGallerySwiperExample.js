@@ -10,7 +10,8 @@ import {
     Linking
 } from "react-native";
 import PropTypes from "prop-types";
-import GallerySwiper from "react-native-gallery-swiper";
+// import GallerySwiper from "react-native-gallery-swiper";
+import GallerySwiper from "./src";
 
 import testData from "./data";
 
@@ -30,7 +31,7 @@ function isIPhoneX() {
     );
 }
 
-class Footer extends React.Component {
+class Footer extends Component {
     static propTypes = {
         renderPageFooter: PropTypes.func,
         images: PropTypes.array.isRequired,
@@ -57,7 +58,7 @@ class Footer extends React.Component {
     }
 }
 
-class Header extends React.Component {
+class Header extends Component {
     static propTypes = {
         renderPageHeader: PropTypes.func,
         images: PropTypes.array.isRequired,
@@ -84,7 +85,7 @@ class Header extends React.Component {
     }
 }
 
-class ImageGallery extends Component {
+export default class ReactNativeGallerySwiperExample extends Component {
     state = {
         galleryIndex: 0
     }
@@ -98,15 +99,25 @@ class ImageGallery extends Component {
                     renderPageHeader={(image, i) => {
                         return (
                             <View style={[styles.statusBarTop, styles.rowMiddleAlign]}>
-                                <TouchableWithoutFeedback onPress={() => console.log("close")}>
+                                <TouchableWithoutFeedback onPress={
+                                    () => console.log("close")}>
                                     <Image source={backIcon} style={{marginLeft: 10, height: 30, width: 30}} />
                                 </TouchableWithoutFeedback>
                                 <Image
-                                    source={{ uri: "https://luehangs.site/images/lue-hang2018-square.jpg" }}
+                                    source={{
+                                        uri: "https://luehangs.site/images/lue-hang2018-square.jpg"
+                                    }}
                                     style={styles.userPic} />
                                 <View>
-                                    <Text style={[styles.profilePrimary, styles.whiteText]}>{image.title}</Text>
-                                    <Text style={[styles.profileSecondary, styles.whiteText]}>test</Text>
+                                    <Text style={[
+                                        styles.profilePrimary,
+                                        styles.whiteText]}>
+                                        {image.title}
+                                    </Text>
+                                    <Text style={[
+                                        styles.profileSecondary,
+                                        styles.whiteText
+                                    ]}>test</Text>
                                 </View>
                             </View>
                         );
@@ -117,7 +128,9 @@ class ImageGallery extends Component {
                 <GallerySwiper
                     style={{ flex: 1, backgroundColor: "#000" }}
                     images={testData}
-                    onPageSelected={(index) => this.setState({ galleryIndex: index })}
+                    onPageSelected={
+                        (index) => this.setState({ galleryIndex: index })
+                    }
                 />
                 <Footer
                     renderPageFooter={(image, i) => {
@@ -132,8 +145,12 @@ class ImageGallery extends Component {
                                         LH Blog
                                     </Text>
                                 </TouchableWithoutFeedback>
-                                <Text style={[styles.footerSecondary, { fontWeight: "bold", color: "#DFDFDF" }]}>
-                                    Learn JavaScript and React Native with project examples along with Cyber Security and Ethical Hacking.
+                                <Text style={[
+                                    styles.footerSecondary,
+                                    { fontWeight: "bold", color: "#DFDFDF" }
+                                    ]}>
+                                    Learn JavaScript and React Native with project examples
+                                    along with Cyber Security and Ethical Hacking.
                                 </Text>
                             </View>
                         );
@@ -152,7 +169,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#368FFA"
     },
     statusBarTop: {
-        paddingTop: isIPhoneX() ? 30 + 2.5 : platform === "ios" ? 20 + 2.5 : 2.5
+        paddingTop: isIPhoneX()
+            ? 30 + 2.5
+            : platform === "ios"
+            ? 20 + 2.5
+            : 2.5
     },
     header: {
         height: isIPhoneX() ? 88 : 64,
@@ -173,12 +194,17 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     footerBottom: {
-        paddingBottom: isIPhoneX() ? 30 + 2.5 : platform === "ios" ? 2.5 : 2.5
+        paddingBottom: isIPhoneX()
+            ? 30 + 2.5
+            : platform === "ios"
+            ? 2.5
+            : 2.5
     },
     userPic: {
         height: 30,
         width: 30,
-        borderRadius: platform === "ios" ? 5 : 100,
+        borderRadius: platform === "ios"
+            ? 5 : 100,
         marginRight: 10
     },
     whiteText: {
@@ -202,5 +228,3 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     }
 });
-
-export default ImageGallery;
