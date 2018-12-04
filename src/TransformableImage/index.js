@@ -56,7 +56,9 @@ export default class TransformableImage extends PureComponent {
     }
 
     componentWillMount () {
-        this.getImageSource(this.props.image);
+        if (!this.state.source) {
+            this.getImageSource(this.props.image);
+        }
         if (!this.state.imageDimensions) {
             this.getImageSize(this.props.image);
         }
@@ -74,7 +76,9 @@ export default class TransformableImage extends PureComponent {
                 imageDimensions: nextProps.image.dimensions,
                 keyAcumulator: this.state.keyAcumulator + 1
             });
-            this.getImageSource(nextProps.image);
+            if (!nextProps.image.source) {
+                this.getImageSource(nextProps.image);
+            }
             // if we don't have image dimensions provided in source
             if (!nextProps.image.dimensions) {
                 this.getImageSize(nextProps.image);
@@ -150,7 +154,7 @@ export default class TransformableImage extends PureComponent {
             // eslint-disable-next-line no-console
             console.warn(
                 "react-native-gallery-swiper",
-                "Please provide dimensions of your local images."
+                "Please provide dimensions for your local images."
             );
         }
     }
@@ -270,9 +274,20 @@ function sameImage (source, nextSource) {
         return true;
     }
     if (source && nextSource) {
-        if (source.uri && nextSource.uri) {
-            return source.uri === nextSource.uri;
+		const uri = findUri(source);
+		const nextUri = findUri(nextSource);
+        if (uri && nextUri) {
+            return uri === nextUri;
         }
     }
     return false;
+}
+
+function findUri (data) {
+	return data.source
+		? data.source : data.uri
+		? { uri: data.uri } : data.URI
+		? { uri: data.URI } : data.url
+		? { uri: data.url } : data.URL
+		? { uri: data.URL } : undefined;
 }
