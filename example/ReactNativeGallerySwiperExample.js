@@ -10,8 +10,7 @@ import {
     Linking
 } from "react-native";
 import PropTypes from "prop-types";
-// import GallerySwiper from "react-native-gallery-swiper";
-import GallerySwiper from "./src";
+import GallerySwiper from "react-native-gallery-swiper";
 
 import testData from "./data";
 
