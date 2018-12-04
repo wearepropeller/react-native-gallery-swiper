@@ -21,16 +21,6 @@ const platform = Platform.OS;
 
 const backIcon = require("./assets/arrow_back_ios_white_36dp.png");
 
-const X_WIDTH = 375;
-const X_HEIGHT = 812;
-function isIPhoneX() {
-    return (
-        Platform.OS === "ios" &&
-            ((deviceHeight === X_HEIGHT && deviceWidth === X_WIDTH) ||
-            (deviceHeight === X_WIDTH && deviceWidth === X_HEIGHT))
-    );
-}
-
 class Footer extends Component {
     static propTypes = {
         renderPageFooter: PropTypes.func,
@@ -161,6 +151,16 @@ export default class ReactNativeGallerySwiperExample extends Component {
             </View>
         );
     }
+}
+
+function isIPhoneX() {
+    const X_WIDTH = 375;
+    const X_HEIGHT = 812;
+    return (
+        Platform.OS === "ios" &&
+            ((deviceHeight === X_HEIGHT && deviceWidth === X_WIDTH) ||
+            (deviceHeight === X_WIDTH && deviceWidth === X_HEIGHT))
+    );
 }
 
 const styles = StyleSheet.create({
