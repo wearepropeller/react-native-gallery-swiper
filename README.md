@@ -39,6 +39,8 @@ $ yarn add react-native-gallery-swiper
 
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
+**Local images must have a defined dimensions field with width and height.**
+
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
 
