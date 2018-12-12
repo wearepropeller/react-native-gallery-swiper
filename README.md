@@ -39,7 +39,7 @@ $ yarn add react-native-gallery-swiper
 
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
-**Local images must have a defined dimensions field with width and height.**
+> **Local images must have a defined dimensions field with width and height.**
 
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
@@ -54,9 +54,17 @@ render() {
                 // Can be used with different image object fieldnames.
                 // Ex. source, source.uri, uri, URI, url, URL
                 { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg" },
-                { source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } },
+                { source: require("yourApp/image.png"),
+                    // IMPORTANT: It is REQUIRED for LOCAL IMAGES
+                    // to include a dimensions field with the
+                    // actual width and height of the image or
+                    // it will throw an error.
+                    dimensions: { width: 1080, height: 1920 } },
                 { source: { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg" } },
                 { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
+                    // Optional: Adding a dimensions field with
+                    // the actual width and height for REMOTE IMAGES
+                    // will help improve performance.
                     dimensions: { width: 1080, height: 1920 } },
                 { URI: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg" },
                 { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
