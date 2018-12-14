@@ -15,7 +15,9 @@ Learn more about React Native with project examples along with Cyber Security an
 - [API](#api)
 - [Props](#props)
 - [Scroll State and Events](#scroll-state-and-events)
+- [Helpful Hints](#helpful-hints)
 - [Example Project](#example-project)
+- [Author](#author)
 - [Contribute](#contribute)
 - [License](#license)
 
@@ -98,6 +100,7 @@ Props | Description | Type | Default
 `scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
 `onSingleTapConfirmed` | Executed after a single tap. | `Function`
 `onLongPress` | Executed after a long press. | `Function`
+`refPage` | The `ref` for the inner View page. **Version *1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
 
@@ -118,6 +121,62 @@ Props | Description | Type | Default
     * `'idle'`: there is no interaction with the page scroller happening at the time.
     * `'dragging'`: there is currently an interaction with the page scroller.
     * `'settling'`: there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation.
+
+## Helpful Hints
+
+> **Version *1.2.0 update (or greater versions):**  Prop for `refPage`
+
+Props | Description | Type | Default
+------ | ------ | ------ | ------
+`refPage` | The `ref` for the inner View Page. | `Function`
+
+Below is an example implementation of the `refPage` which works like a **React** `ref`.
+
+```javascript
+import GallerySwiper from "react-native-gallery-swiper";
+
+//...
+render() {
+    return (
+        <GallerySwiper
+            style={{ flex: 1, backgroundColor: "black" }}
+            refPage={(component) => (this.gallerySwiper = component)}
+            images={[
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg" },
+                { source: require("yourApp/image.png"),
+                    dimensions: { width: 1080, height: 1920 } },
+                { source: { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg" } },
+                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
+                    dimensions: { width: 1080, height: 1920 } },
+                { URI: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg" },
+                { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
+                { URL: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg" },
+            ]}
+        />
+    );
+}
+//...
+```
+
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+
+### Some Useful Functions
+
+After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property to the ``<GallerySwiper />`` component.
+
+* this.gallerySwiper.`flingToPage(index: number, velocityX: number)`
+
+    This `Function` executes a "fling" to a page: 
+
+    * `index: number`: The **required** index of desired page.
+    * `velocityX: number`: The **required** velocity X and should be above `> 0.00`.
+
+* this.gallerySwiper.`scrollToPage(index: number, immediate: Boolean)`
+
+    This `Function` executes a "scroll" to a page:
+
+    * `index: number`: The **required** index of desired page.
+    * `immediate: Boolean`: Whether to go to page immediately without animation or not.  Default is `false`.
 
 ## Example Project
 
