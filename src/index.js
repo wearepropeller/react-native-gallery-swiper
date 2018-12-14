@@ -28,6 +28,7 @@ export default class Gallery extends PureComponent {
         imageComponent: PropTypes.func,
         errorComponent: PropTypes.func,
         flatListProps: PropTypes.object,
+        refPage: PropTypes.func
     };
 
     static defaultProps = {
@@ -320,7 +321,11 @@ export default class Gallery extends PureComponent {
             <ViewPager
                 {...this.props}
                 flatListProps={flatListProps}
-                ref={(component) => (this.galleryViewPager = component)}
+                ref={(component) => {
+                    this.galleryViewPager = component;
+                    this.props.refPage &&
+                        this.props.refPage(component);
+                }}
                 scrollViewStyle={this.props.scrollViewStyle}
                 scrollEnabled={false}
                 renderPage={this.renderPage}

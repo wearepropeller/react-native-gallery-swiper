@@ -159,7 +159,7 @@ export default class TransformableImage extends PureComponent {
         }
     }
 
-    getImageSource = (image) => {
+    getImageSource (image) {
         const source = image.source
             ? image.source : image.uri
             ? { uri: image.uri } : image.URI
