@@ -92,7 +92,7 @@ Props | Description | Type | Default
 `initialPage` | Index of image to be displayed first. | `number` | `0`
 `imageComponent` | Custom function to render your images. 1st param is the **image props** and 2nd is its **dimensions**. | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
-`initialNumToRender` | How many items to render in the initial batch. **Version *1.3.0 update**. | `number` |
+`initialNumToRender` | How many items to render in the initial batch. **Version ^1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `onPageSelected` | Fired with the index of page that has been selected. | `Function`
@@ -101,7 +101,7 @@ Props | Description | Type | Default
 `scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
 `onSingleTapConfirmed` | Executed after a single tap. | `Function`
 `onLongPress` | Executed after a long press. | `Function`
-`refPage` | The `ref` for the inner View page. **Version *1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
+`refPage` | The `ref` for the inner View page. **Version ^1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
 
@@ -125,7 +125,7 @@ Props | Description | Type | Default
 
 ## Helpful Hints
 
-> **Version *1.2.0 update (or greater versions):**  Prop for `refPage`
+> **Version ^1.2.0 update (or greater versions):**  Prop for `refPage`
 
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
