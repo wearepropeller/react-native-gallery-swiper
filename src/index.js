@@ -14,6 +14,7 @@ export default class Gallery extends PureComponent {
         ...View.propTypes,
         images: PropTypes.arrayOf(PropTypes.object).isRequired,
         initialPage: PropTypes.number,
+        initialNumToRender: PropTypes.number,
         scrollViewStyle: ViewPropTypes
             ? ViewPropTypes.style
             : View.propTypes.style,
@@ -335,6 +336,7 @@ export default class Gallery extends PureComponent {
                 onPageScrollStateChanged={this.onPageScrollStateChanged}
                 onPageScroll={this.props.onPageScroll}
                 removeClippedSubviews={this.props.removeClippedSubviews}
+                initialNumToRender={this.props.initialNumToRender}
             />
         );
     }

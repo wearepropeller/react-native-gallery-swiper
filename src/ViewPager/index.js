@@ -20,6 +20,7 @@ export default class ViewPager extends PureComponent {
     static propTypes = {
         ...View.propTypes,
         initialPage: PropTypes.number,
+        initialNumToRender: PropTypes.number,
         pageMargin: PropTypes.number,
         scrollViewStyle: ViewPropTypes
             ? ViewPropTypes.style
@@ -32,7 +33,7 @@ export default class ViewPager extends PureComponent {
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
-        flatListProps: PropTypes.object,
+        flatListProps: PropTypes.object
     };
 
     static defaultProps = {
@@ -387,6 +388,7 @@ export default class ViewPager extends PureComponent {
                     data={pageDataArray}
                     renderItem={this.renderRow}
                     onLayout={this.onLayout}
+                    initialNumToRender={this.props.initialNumToRender}
 
                     // use contentOffset instead of
                     // initialScrollIndex so that we don"t have
