@@ -92,6 +92,7 @@ Props | Description | Type | Default
 `initialPage` | Index of image to be displayed first. | `number` | `0`
 `imageComponent` | Custom function to render your images. 1st param is the **image props** and 2nd is its **dimensions**. | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
+`initialNumToRender` | How many items to render in the initial batch. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `onPageSelected` | Fired with the index of page that has been selected. | `Function`
@@ -106,7 +107,7 @@ Props | Description | Type | Default
 
 ## Scroll state and events
 
-* `onPageScroll` : (event) => {}. 
+* `onPageScroll` : (event: { position: number, offset: number, fraction: number }) => {}
 
     The event object carries following data: 
 
@@ -114,7 +115,7 @@ Props | Description | Type | Default
     * `offset`: value from range [0,1) describing stage between page transitions.
     * `fraction`: means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
 
-* `onPageScrollStateChanged` : (state) => {}.
+* `onPageScrollStateChanged` : (state: string) => {}
 
     Called when the page scrolling state has changed. The page scrolling state can be in 3 states:
 
