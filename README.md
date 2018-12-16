@@ -90,7 +90,7 @@ Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
 `initialPage` | Index of image to be displayed first. | `number` | `0`
-`imageComponent` | Custom function to render your images. 1st param is the **image props** and 2nd is its **dimensions**. | `Function` | `<Image/>` component
+`imageComponent` | Custom function to render your images. `imageComponent(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number)` **index params included in Version ^1.3.1 update** | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
 `initialNumToRender` | How many items to render in the initial batch. **Version ^1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
