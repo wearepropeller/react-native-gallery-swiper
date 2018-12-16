@@ -12,6 +12,7 @@ export default class TransformableImage extends PureComponent {
                 height: PropTypes.number
             })
         }).isRequired,
+        index: PropTypes.number.isRequired,
         style: ViewPropTypes
             ? ViewPropTypes.style
             : View.propTypes.style,
@@ -211,7 +212,7 @@ export default class TransformableImage extends PureComponent {
         const {
             style, imageComponent, resizeMode, enableTransform,
             enableScale, enableTranslate, onTransformGestureReleased,
-            onViewTransformed
+            onViewTransformed, index
         } = this.props;
 
         let maxScale = 1;
@@ -243,7 +244,7 @@ export default class TransformableImage extends PureComponent {
         };
 
         const content = imageComponent
-            ? imageComponent(imageProps, imageDimensions)
+            ? imageComponent(imageProps, imageDimensions, index)
             : <Image { ...imageProps } />;
 
         return (

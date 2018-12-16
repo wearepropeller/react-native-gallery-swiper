@@ -272,6 +272,7 @@ export default class Gallery extends PureComponent {
                 errorComponent={errorComponent}
                 imageComponent={imageComponent}
                 image={pageData}
+                index={pageId}
             />
         );
     }
