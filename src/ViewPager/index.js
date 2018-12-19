@@ -30,6 +30,7 @@ export default class ViewPager extends PureComponent {
         pageDataArray: PropTypes.array,
         initialListSize: PropTypes.number,
         removeClippedSubviews: PropTypes.bool,
+        sensitiveScroll: PropTypes.bool,
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
@@ -42,6 +43,7 @@ export default class ViewPager extends PureComponent {
         scrollEnabled: true,
         pageDataArray: [],
         initialListSize: 10,
+        sensitiveScroll: true,
         removeClippedSubviews: true,
         flatListProps: {}
     };
@@ -191,15 +193,15 @@ export default class ViewPager extends PureComponent {
     }
 
     settlePage (vx) {
-        const { pageDataArray } = this.props;
+        const { pageDataArray, sensitiveScroll } = this.props;
 
-        if (vx < -MIN_FLING_VELOCITY) {
+        if (sensitiveScroll && vx < -MIN_FLING_VELOCITY) {
             if (this.currentPage < pageDataArray.length - 1) {
                 this.flingToPage(this.currentPage + 1, vx);
             } else {
                 this.flingToPage(pageDataArray.length - 1, vx);
             }
-        } else if (vx > MIN_FLING_VELOCITY) {
+        } else if (sensitiveScroll && vx > MIN_FLING_VELOCITY) {
             if (this.currentPage > 0) {
                 this.flingToPage(this.currentPage - 1, vx);
             } else {

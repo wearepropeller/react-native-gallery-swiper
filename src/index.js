@@ -19,6 +19,7 @@ export default class Gallery extends PureComponent {
             ? ViewPropTypes.style
             : View.propTypes.style,
         pageMargin: PropTypes.number,
+        sensitiveScroll: PropTypes.bool,
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
@@ -333,6 +334,7 @@ export default class Gallery extends PureComponent {
                 renderPage={this.renderPage}
                 pageDataArray={images}
                 {...gestureResponder}
+                sensitiveScroll={this.props.sensitiveScroll}
                 onPageSelected={this.onPageSelected}
                 onPageScrollStateChanged={this.onPageScrollStateChanged}
                 onPageScroll={this.props.onPageScroll}
