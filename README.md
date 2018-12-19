@@ -1,6 +1,6 @@
 <a href="https://luehangs.site/lue_hang/projects/react-native-gallery-swiper"><img src="https://luehangs.site/images/react-native-gallery-swiper-main.jpg" alt="react-native-gallery-swiper"/></a>
 
-> An easy and simple to use React Native component to render an image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
+> An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
 
@@ -95,6 +95,7 @@ Props | Description | Type | Default
 `initialNumToRender` | How many items to render in the initial batch. **Version ^1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
+`sensitiveScroll` | Whether to enable an intelligent detection to detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version ^1.4.0 update**. | `Boolean` | `true`
 `onPageSelected` | Fired with the index of page that has been selected. | `Function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). | `Function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). | `Function`
