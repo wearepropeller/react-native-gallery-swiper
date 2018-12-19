@@ -21,7 +21,7 @@ Learn more about React Native with project examples along with Cyber Security an
 - [Contribute](#contribute)
 - [License](#license)
 
-Improved and changed on top of `react-native-image-gallery`.
+Improved and changed on top of `react-native-gallery`.
 
 ## Install
 
@@ -90,7 +90,7 @@ Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
 `initialPage` | Index of image to be displayed first. | `number` | `0`
-`imageComponent` | Custom function to render your images. `imageComponent(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number)` **index params included in Version ^1.3.1 update** | `Function` | `<Image/>` component
+`imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version ^1.3.1 update** | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
 `initialNumToRender` | How many items to render in the initial batch. **Version ^1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
@@ -107,25 +107,25 @@ Props | Description | Type | Default
 
 ## Scroll state and events
 
-* `onPageScroll` : (event: { position: number, offset: number, fraction: number }) => {}
+* `onPageScroll(event: { position: number, offset: number, fraction: number }) => void`
 
     The event object carries following data: 
 
-    * `position`:  index of first page from the left that is currently visible.
-    * `offset`: value from range [0,1) describing stage between page transitions.
-    * `fraction`: means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
+    * `position: number`:  index of first page from the left that is currently visible.
+    * `offset: number`: value from range [0,1) describing stage between page transitions.
+    * `fraction: number`: means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
 
-* `onPageScrollStateChanged` : (state: string) => {}
+* `onPageScrollStateChanged(state: string) => void`
 
     Called when the page scrolling state has changed. The page scrolling state can be in 3 states:
 
-    * `'idle'`: there is no interaction with the page scroller happening at the time.
-    * `'dragging'`: there is currently an interaction with the page scroller.
-    * `'settling'`: there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation.
+    * `'idle': string`: there is no interaction with the page scroller happening at the time.
+    * `'dragging': string`: there is currently an interaction with the page scroller.
+    * `'settling': string`: there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation.
 
 ## Helpful Hints
 
-> **Version ^1.2.0 update (or greater versions):**  Prop for `refPage`
+> **Version ^1.2.0 update (or greater versions):**  `refPage` prop
 
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
