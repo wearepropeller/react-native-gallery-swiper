@@ -390,6 +390,7 @@ export default class ViewPager extends PureComponent {
                     data={pageDataArray}
                     renderItem={this.renderRow}
                     onLayout={this.onLayout}
+                    removeClippedSubviews={this.props.removeClippedSubviews}
                     initialNumToRender={this.props.initialNumToRender}
 
                     // use contentOffset instead of

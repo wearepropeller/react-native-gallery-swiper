@@ -34,7 +34,6 @@ export default class Gallery extends PureComponent {
     };
 
     static defaultProps = {
-        removeClippedSubviews: true,
         imageComponent: undefined,
         scrollViewStyle: {},
         flatListProps: DEFAULT_FLAT_LIST_PROPS
