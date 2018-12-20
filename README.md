@@ -96,12 +96,13 @@ Props | Description | Type | Default
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `sensitiveScroll` | Whether to enable an intelligent detection to detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version ^1.4.0 update**. | `Boolean` | `true`
-`onPageSelected` | Fired with the index of page that has been selected. | `Function`
-`onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). | `Function`
-`onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). | `Function`
+`onPageSelected` | Fired with the index of page that has been selected. `(index: number) => void` | `Function`
+`onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). `(state: string) => void` | `Function`
+`onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). `(event: { position: number, offset: number, fraction: number }) => void` | `Function`
 `scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
 `onSingleTapConfirmed` | Executed after a single tap. | `Function`
 `onLongPress` | Executed after a long press. | `Function`
+`removeClippedSubviews` | To improve scroll performance for large lists. **Version ^1.4.1 update**. | `Boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version ^1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
