@@ -110,6 +110,10 @@ render() {
                 { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
                 { URL: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg" },
             ]}
+            // Version *1.4.0 update: Whether to enable an intelligent
+            // detection to detect rough and fast swiping gestures in
+            // order to "cushion" or slow down a swipe at the end.
+            sensitiveScroll={true}
         />
     );
 }
