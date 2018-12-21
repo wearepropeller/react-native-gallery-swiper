@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     Platform,
     Dimensions,
@@ -20,18 +20,11 @@ const platform = Platform.OS;
 
 const backIcon = require("./assets/arrow_back_ios_white_36dp.png");
 
-class Footer extends Component {
+class Footer extends React.PureComponent {
     static propTypes = {
         renderPageFooter: PropTypes.func,
         images: PropTypes.array.isRequired,
         galleryIndex: PropTypes.number.isRequired
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.galleryIndex !== nextProps.galleryIndex) {
-            return true;
-        }
-        return false;
     }
 
     render() {
@@ -47,18 +40,11 @@ class Footer extends Component {
     }
 }
 
-class Header extends Component {
+class Header extends React.PureComponent {
     static propTypes = {
         renderPageHeader: PropTypes.func,
         images: PropTypes.array.isRequired,
         galleryIndex: PropTypes.number.isRequired
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.galleryIndex !== nextProps.galleryIndex) {
-            return true;
-        }
-        return false;
     }
 
     render() {
@@ -74,7 +60,7 @@ class Header extends Component {
     }
 }
 
-export default class ReactNativeGallerySwiperExample extends Component {
+export default class ReactNativeGallerySwiperExample extends React.PureComponent {
     state = {
         galleryIndex: 0
     }
@@ -89,6 +75,7 @@ export default class ReactNativeGallerySwiperExample extends Component {
                         return (
                             <View style={[styles.statusBarTop, styles.rowMiddleAlign]}>
                                 <TouchableWithoutFeedback onPress={
+                                    // eslint-disable-next-line no-console
                                     () => console.log("close")}>
                                     <Image source={backIcon} style={{marginLeft: 10, height: 30, width: 30}} />
                                 </TouchableWithoutFeedback>
@@ -100,13 +87,16 @@ export default class ReactNativeGallerySwiperExample extends Component {
                                 <View>
                                     <Text style={[
                                         styles.profilePrimary,
-                                        styles.whiteText]}>
+                                        styles.whiteText]}
+                                    >
                                         {image.title}
                                     </Text>
                                     <Text style={[
                                         styles.profileSecondary,
                                         styles.whiteText
-                                    ]}>test</Text>
+                                    ]}>
+                                        {image.description}
+                                    </Text>
                                 </View>
                             </View>
                         );
@@ -116,6 +106,7 @@ export default class ReactNativeGallerySwiperExample extends Component {
                 />
                 <GallerySwiper
                     style={{ flex: 1, backgroundColor: "#000" }}
+                    sensitiveScroll={true}
                     images={testData}
                     onPageSelected={
                         (index) => this.setState({ galleryIndex: index })

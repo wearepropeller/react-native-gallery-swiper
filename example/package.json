@@ -1,7 +1,6 @@
 {
   "name": "react-native-gallery-swiper-example",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android",
