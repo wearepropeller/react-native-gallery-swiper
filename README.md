@@ -1,12 +1,32 @@
 <a href="https://luehangs.site/lue_hang/projects/react-native-gallery-swiper"><img src="https://luehangs.site/images/react-native-gallery-swiper-main.jpg" alt="react-native-gallery-swiper"/></a>
 
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
+<br/>
+<br/>
+
 > An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ![react-native-gallery-swiper](https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif)
 
-Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH BLOG](https://www.luehangs.site).
+Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH LABS](https://www.luehangs.site).
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## Index
 
@@ -23,6 +43,15 @@ Learn more about React Native with project examples along with Cyber Security an
 
 Improved and changed on top of `react-native-gallery`.
 
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
 ## Install
 
 Type in the following to the command line to install the dependency.
@@ -36,6 +65,15 @@ or
 ```bash
 $ yarn add react-native-gallery-swiper
 ```
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## Usage Example
 
@@ -78,11 +116,17 @@ render() {
 //...
 ```
 
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+<br/>
+<br/>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
+<br/>
+<br/>
 
 ## API
 
 ``<GallerySwiper />`` component accepts the following props...
+
+<br/>
 
 ## Props
 
@@ -100,12 +144,16 @@ Props | Description | Type | Default
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). `(state: string) => void` | `Function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). `(event: { position: number, offset: number, fraction: number }) => void` | `Function`
 `scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
-`onSingleTapConfirmed` | Executed after a single tap. | `Function`
-`onLongPress` | Executed after a long press. | `Function`
+`onSingleTapConfirmed` | Executed after a single tap. `() => void` | `Function`
+`onLongPress` | Executed after a long press. `() => void` | `Function`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version ^1.4.1 update**. | `Boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version ^1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+<br/>
+<br/>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
+<br/>
+<br/>
 
 ## Scroll state and events
 
@@ -124,6 +172,15 @@ Props | Description | Type | Default
     * `'idle': string`: there is no interaction with the page scroller happening at the time.
     * `'dragging': string`: there is currently an interaction with the page scroller.
     * `'settling': string`: there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation.
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## Helpful Hints
 
@@ -161,7 +218,11 @@ render() {
 //...
 ```
 
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+<br/>
+<br/>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
+<br/>
+<br/>
 
 ### Some Useful Functions
 
@@ -180,6 +241,15 @@ After implementing the `refPage={(component) => (this.gallerySwiper = component)
 
     * `index: number`: The **required** index of desired page.
     * `immediate: Boolean`: Whether to go to page immediately without animation or not.  Default is `false`.
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## Example Project
 
@@ -215,7 +285,20 @@ $ cd react-native-gallery-swiper/example/
 	3. emulator running in separate terminal
 	4. npm run android
 
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH BLOG"/></a>
+<br/>
+<br/>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## Author
 
@@ -225,17 +308,39 @@ $ cd react-native-gallery-swiper/example/
 
 Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
 ## Contribute
 
 [Pull requests](https://github.com/Luehang/react-native-gallery-swiper/pulls) are welcomed.
+
+<br/>
 
 ### Beginners
 
 Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
 
+<br/>
+
 ### Contributors
 
 Contributors will be posted here.
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
 
 ## License
 
