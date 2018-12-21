@@ -9,7 +9,7 @@ const DEFAULT_FLAT_LIST_PROPS = {
     windowSize: 3
 };
 
-export default class Gallery extends PureComponent {
+export default class GallerySwiper extends PureComponent {
     static propTypes = {
         ...View.propTypes,
         images: PropTypes.arrayOf(PropTypes.object).isRequired,
