@@ -1,4 +1,4 @@
-package com.example;
+package com.reactnativegalleryswiperexample;
 
 import android.app.Application;
 
