@@ -129,6 +129,11 @@ export default class TransformableImage extends PureComponent {
             return;
         }
 
+        if (image.width && image.height) {
+            this.setState({ imageDimensions: { width: image.width, height: image.height } });
+            return;
+        }
+
         if (uri) {
             Image.getSize(
                 uri,
