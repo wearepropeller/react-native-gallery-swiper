@@ -79,7 +79,7 @@ $ yarn add react-native-gallery-swiper
 
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
-> **Local images must have a defined dimensions field with width and height.**
+> **Local images must have a defined `dimensions` field with `width` and `height` or just `height` and `width`.**
 
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
@@ -100,11 +100,17 @@ render() {
                     // actual width and height of the image or
                     // it will throw an error.
                     dimensions: { width: 1080, height: 1920 } },
+                { source: require("yourApp/image.png"),
+                    // Version *1.5.0 update (or greater versions):
+                    // An alternative to the dimensions field.
+                    // This will also be acceptable.
+                    width: 1080,
+                    height: 1920 },
                 { source: { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg" } },
                 { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
-                    // Optional: Adding a dimensions field with
-                    // the actual width and height for REMOTE IMAGES
-                    // will help improve performance.
+                    // Optional: Adding a dimensions or height and
+                    // width field with the actual width and height
+                    // for REMOTE IMAGES will help improve performance.
                     dimensions: { width: 1080, height: 1920 } },
                 { URI: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg" },
                 { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
@@ -138,20 +144,20 @@ Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
 `initialPage` | Index of image to be displayed first. | `number` | `0`
-`imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version ^1.3.1 update** | `Function` | `<Image/>` component
+`imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version \*1.3.1 update** | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
-`initialNumToRender` | How many items to render in the initial batch. **Version ^1.3.0 update**. | `number` |
+`initialNumToRender` | How many items to render in the initial batch. **Version \*1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
-`sensitiveScroll` | Whether to enable an intelligent detection to detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version ^1.4.0 update**. | `Boolean` | `true`
+`sensitiveScroll` | Whether to enable an intelligent detection to detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version \*1.4.0 update**. | `Boolean` | `true`
 `onPageSelected` | Fired with the index of page that has been selected. `(index: number) => void` | `Function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). `(state: string) => void` | `Function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). `(event: { position: number, offset: number, fraction: number }) => void` | `Function`
 `scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
 `onSingleTapConfirmed` | Executed after a single tap. `() => void` | `Function`
 `onLongPress` | Executed after a long press. `() => void` | `Function`
-`removeClippedSubviews` | To improve scroll performance for large lists. **Version ^1.4.1 update**. | `Boolean` | `true`
-`refPage` | The `ref` for the inner View page. **Version ^1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
+`removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `Boolean` | `true`
+`refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
 <br/>
 <br/>
@@ -188,7 +194,7 @@ Props | Description | Type | Default
 
 ## Helpful Hints
 
-> **Version ^1.2.0 update (or greater versions):**  `refPage` prop
+> **Version \*1.2.0 update (or greater versions):**  `refPage` prop
 
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
