@@ -116,7 +116,6 @@ export default class TransformableImage extends PureComponent {
         if (!image) {
             return;
         }
-        const { dimensions } = image;
         const uri = image.source && image.source.uri
             ? image.source.uri : image.uri
             ? image.uri : image.URI
@@ -124,8 +123,8 @@ export default class TransformableImage extends PureComponent {
             ? image.url : image.URL
             ? image.URL : undefined;
 
-        if (dimensions) {
-            this.setState({ imageDimensions: dimensions });
+        if (image.dimensions && image.dimensions.width && image.dimensions.height) {
+            this.setState({ imageDimensions: image.dimensions });
             return;
         }
 
