@@ -116,10 +116,6 @@ render() {
                 { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
                 { URL: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg" },
             ]}
-            // Version *1.4.0 update: Whether to enable an intelligent
-            // detection to detect rough and fast swiping gestures in
-            // order to "cushion" or slow down a swipe at the end.
-            sensitiveScroll={true}
         />
     );
 }
@@ -149,7 +145,7 @@ Props | Description | Type | Default
 `initialNumToRender` | How many items to render in the initial batch. **Version \*1.3.0 update**. | `number` |
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
-`sensitiveScroll` | Whether to enable an intelligent detection to detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version \*1.4.0 update**. | `Boolean` | `true`
+`sensitiveScroll` | Detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version \*1.4.0 update**. | `Boolean` | `true`
 `onPageSelected` | Fired with the index of page that has been selected. `(index: number) => void` | `Function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). `(state: string) => void` | `Function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). `(event: { position: number, offset: number, fraction: number }) => void` | `Function`
