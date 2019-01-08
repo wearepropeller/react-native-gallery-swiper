@@ -17,7 +17,7 @@
 
 ![react-native-gallery-swiper](https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif)
 
-Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH LABS](https://www.luehangs.site).
+#### :information_source: Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH LABS](https://www.luehangs.site).
 
 <br/>
 <br/>
@@ -28,18 +28,18 @@ Learn more about React Native with project examples along with Cyber Security an
 <br/>
 <br/>
 
-## Index
+# Index
 
-- [Install](#install)
-- [Usage Example](#usage-example)
-- [API](#api)
-- [Props](#props)
-- [Scroll State and Events](#scroll-state-and-events)
-- [Helpful Hints](#helpful-hints)
-- [Example Project](#example-project)
-- [Author](#author)
-- [Contribute](#contribute)
-- [License](#license)
+### 1.  [Install](#large_blue_diamond-install)
+### 2.  [Usage Example](#large_blue_diamond-usage-example)
+### 3.  [API](#large_blue_diamond-api)
+### 4.  [Props](#large_blue_diamond-props)
+### 5.  [Scroll State and Events](#large_blue_diamond-scroll-state-and-events)
+### 6.  [Helpful Hints](#large_blue_diamond-helpful-hints)
+### 7.  [Example Project](#large_blue_diamond-example-project)
+### 8.  [Author](#large_blue_diamond-author)
+### 9.  [Contribute](#large_blue_diamond-contribute)
+### 10.  [License](#large_blue_diamond-license)
 
 Improved and changed on top of `react-native-gallery`.
 
@@ -52,7 +52,7 @@ Improved and changed on top of `react-native-gallery`.
 <br/>
 <br/>
 
-## Install
+## :large_blue_diamond: Install
 
 Type in the following to the command line to install the dependency.
 
@@ -75,11 +75,11 @@ $ yarn add react-native-gallery-swiper
 <br/>
 <br/>
 
-## Usage Example
+## :large_blue_diamond: Usage Example
 
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
-> **Local images must have a defined `dimensions` field with `width` and `height` or just `height` and `width`.**
+#### :information_source: Local images must have a defined `dimensions` field with `width` and `height` or just `height` and `width`.
 
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
@@ -128,13 +128,13 @@ render() {
 <br/>
 <br/>
 
-## API
+## :large_blue_diamond: API
 
 ``<GallerySwiper />`` component accepts the following props...
 
 <br/>
 
-## Props
+# :large_blue_diamond: Props
 
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
@@ -161,7 +161,7 @@ Props | Description | Type | Default
 <br/>
 <br/>
 
-## Scroll state and events
+## :large_blue_diamond: Scroll state and events
 
 * `onPageScroll(event: { position: number, offset: number, fraction: number }) => void`
 
@@ -188,9 +188,9 @@ Props | Description | Type | Default
 <br/>
 <br/>
 
-## Helpful Hints
+## :large_blue_diamond: Helpful Hints
 
-> **Version \*1.2.0 update (or greater versions):**  `refPage` prop
+:information_source: **Version \*1.2.0 update (or greater versions):**  `refPage` prop
 
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
@@ -230,7 +230,7 @@ render() {
 <br/>
 <br/>
 
-### Some Useful Functions
+### :small_blue_diamond: Some Useful Functions
 
 After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property to the ``<GallerySwiper />`` component.
 
@@ -257,14 +257,14 @@ After implementing the `refPage={(component) => (this.gallerySwiper = component)
 <br/>
 <br/>
 
-## Example Project
+## :large_blue_diamond: Example Project
 
 Perform steps 1-2 to run locally:
 
 1. [Clone the Repo](#1-clone-the-repo)
 2. [Install and Run](#2-install-and-run)
 
-### 1. Clone the Repo
+### :small_blue_diamond: 1. Clone the Repo
 
 **Clone** `react-native-gallery-swiper` locally. In a terminal, run:
 
@@ -272,7 +272,7 @@ Perform steps 1-2 to run locally:
 $ git clone https://github.com/Luehang/react-native-gallery-swiper.git react-native-gallery-swiper
 ```
 
-### 2. Install and Run
+### :small_blue_diamond: 2. Install and Run
 
 ```bash
 $ cd react-native-gallery-swiper/example/
@@ -306,7 +306,7 @@ $ cd react-native-gallery-swiper/example/
 <br/>
 <br/>
 
-## Author
+## :large_blue_diamond: Author
 
 <a href="https://www.facebook.com/lue.hang">
 <img src="https://www.luehangs.site/images/lue-hang2018-circle-150px.png"/>
@@ -323,21 +323,21 @@ Free and made possible along with costly maintenance and updates by [Lue Hang](h
 <br/>
 <br/>
 
-## Contribute
+## :large_blue_diamond: Contribute
 
 [Pull requests](https://github.com/Luehang/react-native-gallery-swiper/pulls) are welcomed.
 
 <br/>
 
-### Beginners
+### :large_blue_diamond: Contributors
 
-Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
+Contributors will be posted here.
 
 <br/>
 
-### Contributors
+### :small_blue_diamond: Beginners
 
-Contributors will be posted here.
+Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
 
 <br/>
 <br/>
@@ -348,6 +348,6 @@ Contributors will be posted here.
 <br/>
 <br/>
 
-## License
+## :large_blue_diamond: License
 
 MIT © [Lue Hang](https://luehangs.site), as found in the LICENSE file.
