@@ -33,7 +33,7 @@
 ### 1.  [Install](#large_blue_diamond-install)
 ### 2.  [Usage Example](#large_blue_diamond-usage-example)
 ### 3.  [API](#large_blue_diamond-api)
-### 4.  [Props](#large_blue_diamond-props)
+### 4.  :books: [Props](#large_blue_diamond-props)
 ### 5.  [Scroll State and Events](#large_blue_diamond-scroll-state-and-events)
 ### 6.  [Helpful Hints](#large_blue_diamond-helpful-hints)
 ### 7.  [Example Project](#large_blue_diamond-example-project)
