@@ -1,6 +1,9 @@
 # OSX
 #
 .DS_Store
+src/.DS_Store
+__tests__/.DS_Store
+example/.DS_Store
 
 # Xcode
 #

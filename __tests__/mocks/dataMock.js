@@ -1,13 +1,5 @@
 export const data = [
     {
-        source: require("./pictureMock.jpg"),
-        dimensions: { width: 1080, height: 1920 },
-        thumbnail: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
-        id: idGenerator(),
-        title: "www.luehangs.site",
-        description: "Test 0",
-    },
-    {
         source: { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg" },
         dimensions: { width: 1080, height: 1920 },
         thumbnail: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
