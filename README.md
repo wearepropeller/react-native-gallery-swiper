@@ -32,14 +32,15 @@
 
 ### 1.  [Install](#large_blue_diamond-install)
 ### 2.  [Usage Example](#large_blue_diamond-usage-example)
-### 3.  [API](#large_blue_diamond-api)
-### 4.  :books: [Props](#large_blue_diamond-props)
-### 5.  [Scroll State and Events](#large_blue_diamond-scroll-state-and-events)
-### 6.  [Helpful Hints](#large_blue_diamond-helpful-hints)
-### 7.  [Example Project](#large_blue_diamond-example-project)
-### 8.  [Author](#large_blue_diamond-author)
-### 9.  [Contribute](#large_blue_diamond-contribute)
-### 10.  [License](#large_blue_diamond-license)
+### 3.  [Performance Optimization List Example](#large_blue_diamond-performance-optimization-list-example)
+### 4.  [API](#large_blue_diamond-api)
+### 5.  :books: [Props](#large_blue_diamond-props)
+### 6.  [Scroll State and Events](#large_blue_diamond-scroll-state-and-events)
+### 7.  [Helpful Hints](#large_blue_diamond-helpful-hints)
+### 8.  [Example Project](#large_blue_diamond-example-project)
+### 9.  [Author](#large_blue_diamond-author)
+### 10.  [Contribute](#large_blue_diamond-contribute)
+### 11.  [License](#large_blue_diamond-license)
 
 Improved and changed on top of `react-native-gallery`.
 
@@ -107,15 +108,63 @@ render() {
                     width: 1080,
                     height: 1920 },
                 { source: { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg" } },
-                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
-                    // Optional: Adding a dimensions or height and
-                    // width field with the actual width and height
-                    // for REMOTE IMAGES will help improve performance.
-                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg" },
                 { URI: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg" },
                 { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
                 { URL: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg" },
             ]}
+        />
+    );
+}
+//...
+```
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
+## :large_blue_diamond: Performance Optimization List Example
+
+```javascript
+import GallerySwiper from "react-native-gallery-swiper";
+
+//...
+render() {
+    return (
+        <GallerySwiper
+            style={{ flex: 1, backgroundColor: "black" }}
+            images={[
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg",
+                    // Optional: Adding a dimensions or height and
+                    // width field with the actual width and height
+                    // for REMOTE IMAGES will help improve performance.
+                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg",
+                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
+                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg",
+                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg",
+                    dimensions: { width: 1080, height: 1920 } },
+                { uri: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg",
+                    dimensions: { width: 1920, height: 1080 } },
+                // Test with 10 to over 100s to 1000s of images
+                // ...
+                // ...
+                // ...
+            ]}
+            // Change this to render how many items before it.
+            initialNumToRender={2}
+            // Turning this off will make it feel faster
+            // and prevent the scroller to slow down
+            // on fast swipes.
+            sensitiveScroll={false}
         />
     );
 }
@@ -142,7 +191,7 @@ Props | Description | Type | Default
 `initialPage` | Index of image to be displayed first. | `number` | `0`
 `imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version \*1.3.1 update** | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
-`initialNumToRender` | How many items to render in the initial batch. **Version \*1.3.0 update**. | `number` |
+`initialNumToRender` | How many items to render in the initial batch. **Version \*1.3.0 update**. | `number` | `3`
 `flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `sensitiveScroll` | Detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version \*1.4.0 update**. | `Boolean` | `true`
