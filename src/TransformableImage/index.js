@@ -1,9 +1,9 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { View, Text, Image, ViewPropTypes } from "react-native";
 import PropTypes from "prop-types";
 import ViewTransformer from "../ViewTransformer";
 
-export default class TransformableImage extends PureComponent {
+export default class TransformableImage extends React.Component {
     static propTypes = {
         image: PropTypes.shape({
             uri: PropTypes.string,
@@ -21,8 +21,8 @@ export default class TransformableImage extends PureComponent {
         enableTransform: PropTypes.bool,
         enableScale: PropTypes.bool,
         enableTranslate: PropTypes.bool,
-        onTransformGestureReleased: PropTypes.func,
-        onViewTransformed: PropTypes.func,
+        onTransformGestureReleased: PropTypes.func.isRequired,
+        onViewTransformed: PropTypes.func.isRequired,
         imageComponent: PropTypes.func,
         resizeMode: PropTypes.string,
         errorComponent: PropTypes.func,
@@ -51,7 +51,7 @@ export default class TransformableImage extends PureComponent {
             viewHeight: 0,
             imageLoaded: false,
             imageDimensions: props.image.dimensions,
-            keyAcumulator: 1,
+            keyAccumulator: 1,
             source: undefined
         };
     }
@@ -75,7 +75,8 @@ export default class TransformableImage extends PureComponent {
             // image's imageDimensions info if any
             this.setState({
                 imageDimensions: nextProps.image.dimensions,
-                keyAcumulator: this.state.keyAcumulator + 1
+                keyAccumulator: this.state.keyAccumulator + 1,
+                imageLoaded: false
             });
             if (!nextProps.image.source) {
                 this.getImageSource(nextProps.image);
@@ -85,6 +86,13 @@ export default class TransformableImage extends PureComponent {
                 this.getImageSize(nextProps.image);
             }
         }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextState.imageLoaded && !this.state.imageLoaded) {
+            return true;
+        }
+        return false;
     }
 
     componentWillUnmount () {
@@ -247,7 +255,9 @@ export default class TransformableImage extends PureComponent {
             capInsets: { left: 0.1, top: 0.1, right: 0.1, bottom: 0.1 }
         };
 
-        const content = imageComponent
+        const content = error
+            ? this.renderError()
+            : imageComponent
             ? imageComponent(imageProps, imageDimensions, index)
             : <Image { ...imageProps } />;
 
@@ -268,7 +278,7 @@ export default class TransformableImage extends PureComponent {
                 contentAspectRatio={contentAspectRatio}
                 onLayout={this.onLayout}
                 style={style}>
-                    { error ? this.renderError() : content }
+                    { content }
             </ViewTransformer>
         );
     }

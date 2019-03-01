@@ -28,7 +28,6 @@ export default class ViewPager extends PureComponent {
         scrollEnabled: PropTypes.bool,
         renderPage: PropTypes.func,
         pageDataArray: PropTypes.array,
-        initialListSize: PropTypes.number,
         removeClippedSubviews: PropTypes.bool,
         sensitiveScroll: PropTypes.bool,
         onPageSelected: PropTypes.func,
@@ -39,10 +38,10 @@ export default class ViewPager extends PureComponent {
 
     static defaultProps = {
         initialPage: 0,
+        initialNumToRender: 3,
         pageMargin: 0,
         scrollEnabled: true,
         pageDataArray: [],
-        initialListSize: 10,
         sensitiveScroll: true,
         removeClippedSubviews: true,
         flatListProps: {}
