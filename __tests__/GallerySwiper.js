@@ -8,10 +8,6 @@ import GallerySwiper from "./../src/";
 // Note: test renderer must be required after react-native.
 import renderer from "react-test-renderer";
 
-// it("Gallery Swiper renders correctly", () => {
-//     renderer.create(<GallerySwiper images={data} />);
-// });
-
 test("Gallery Swiper renders correctly", () => {
     const gallerySwiper = renderer.create(<GallerySwiper images={data} />).toJSON();
 

@@ -1,6 +1,6 @@
 export const data = [
     {
-        source: require("./../../example/assets/adult-art-artistic-235462.jpg"),
+        source: require("./pictureMock.jpg"),
         dimensions: { width: 1080, height: 1920 },
         thumbnail: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
         id: idGenerator(),
