@@ -38,6 +38,10 @@ export default class GallerySwiper extends PureComponent {
     };
 
     static defaultProps = {
+        style: {
+            flex: 1,
+            backgroundColor: "#000"
+        },
         imageComponent: undefined,
         scrollViewStyle: {},
         flatListProps: DEFAULT_FLAT_LIST_PROPS
