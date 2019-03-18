@@ -211,6 +211,11 @@ export default function create (config) {
                             gestureState._lastReleaseTimestamp
                         ) < TAP_UP_TIME_THRESHOLD
                     ) {
+                        const snapshot = Object.assign({}, gestureState);
+                        // eslint-disable-next-line no-console
+                        DEV && console.log("onResponderDoubleTapConfirmed...");
+                        config.onResponderDoubleTapConfirmed &&
+                        config.onResponderDoubleTapConfirmed(e, snapshot);
                         gestureState.doubleTapUp = true;
                     }
                 }

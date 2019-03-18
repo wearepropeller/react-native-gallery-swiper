@@ -111,6 +111,10 @@ export default class ViewTransformer extends React.Component {
             onResponderTerminate: this.onResponderRelease,
             // Do not allow parent view to intercept gesture
             onResponderTerminationRequest: (evt, gestureState) => false,
+            onResponderDoubleTapConfirmed: (evt, gestureState) => {
+                this.props.onDoubleTapConfirmed &&
+                    this.props.onDoubleTapConfirmed();
+            },
             onResponderSingleTapConfirmed: (evt, gestureState) => {
                 this.props.onSingleTapConfirmed &&
                     this.props.onSingleTapConfirmed();
@@ -206,7 +210,6 @@ export default class ViewTransformer extends React.Component {
             let scaleBy = gestureState.pinch / gestureState.previousPinch;
             let pivotX = gestureState.moveX - this.state.pageX;
             let pivotY = gestureState.moveY - this.state.pageY;
-
             let rect = transformedRect(
                 transformedRect(
                     this.contentRect(),

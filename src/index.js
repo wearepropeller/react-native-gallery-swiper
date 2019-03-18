@@ -23,6 +23,7 @@ export default class GallerySwiper extends PureComponent {
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
+        onDoubleTapConfirmed: PropTypes.func,
         onSingleTapConfirmed: PropTypes.func,
         onGalleryStateChanged: PropTypes.func,
         onLongPress: PropTypes.func,
@@ -123,6 +124,10 @@ export default class GallerySwiper extends PureComponent {
             onResponderTerminate: onResponderReleaseOrTerminate,
             // Do not allow parent view to intercept gesture
             onResponderTerminationRequest: (evt, gestureState) => false,
+            onResponderDoubleTapConfirmed: (evt, gestureState) => {
+                this.props.onDoubleTapConfirmed &&
+                    this.props.onDoubleTapConfirmed(this.currentPage);
+            },
             onResponderSingleTapConfirmed: (evt, gestureState) => {
                 this.props.onSingleTapConfirmed &&
                     this.props.onSingleTapConfirmed(this.currentPage);
