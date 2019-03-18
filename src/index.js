@@ -14,6 +14,7 @@ export default class GallerySwiper extends PureComponent {
         ...View.propTypes,
         images: PropTypes.arrayOf(PropTypes.object).isRequired,
         initialPage: PropTypes.number,
+        resizeMode: PropTypes.string,
         initialNumToRender: PropTypes.number,
         scrollViewStyle: ViewPropTypes
             ? ViewPropTypes.style
@@ -259,7 +260,7 @@ export default class GallerySwiper extends PureComponent {
 
     renderPage (pageData, pageId) {
         const {
-            onViewTransformed, onTransformGestureReleased,
+            onViewTransformed, onTransformGestureReleased, resizeMode,
             enableScale, enableTranslate, errorComponent, imageComponent
         } = this.props;
         return (
@@ -282,6 +283,7 @@ export default class GallerySwiper extends PureComponent {
                 index={pageId}
                 enableScale={enableScale}
                 enableTranslate={enableTranslate}
+                resizeMode={resizeMode}
             />
         );
     }
