@@ -24,6 +24,7 @@ export default class ViewTransformer extends React.Component {
         enableResistance: PropTypes.bool,
         onViewTransformed: PropTypes.func,
         onTransformGestureReleased: PropTypes.func,
+        onDoubleTapConfirmed: PropTypes.func,
         onSingleTapConfirmed: PropTypes.func,
         onLayout: PropTypes.func,
         onTransformStart: PropTypes.func,
