@@ -157,7 +157,7 @@ export default class GallerySwiper extends PureComponent {
                     currentImageTransformer.onResponderGrant(evt, gestureState);
                 if (this.props.onLongPress) {
                     this._longPressTimeout = setTimeout(() => {
-                        this.props.onLongPress(gestureState);
+                        this.props.onLongPress(gestureState, this.currentPage);
                     }, 600);
                 }
             },
