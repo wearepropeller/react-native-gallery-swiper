@@ -201,7 +201,7 @@ Props | Description | Type | Default
 `scrollViewStyle` | Custom style for the `FlatList` component. | `object` | `{}`
 `onDoubleTapConfirmed` | Executed after a double tap. `(index: number) => void` **Version \*1.8.0 update** | `Function`
 `onSingleTapConfirmed` | Executed after a single tap. `(index: number) => void` | `Function`
-`onLongPress` | Executed after a long press. `(gestureState: object, index: number) => void` | `Function`
+`onLongPress` | Executed after a long press. `(gestureState: object, index: number) => void` **index params in Version \*1.10.0 update**. | `Function`
 `enableScale` | Enable or disable zoom and double tap zoom. **Version \*1.9.0 update**. | `boolean` | `true`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
