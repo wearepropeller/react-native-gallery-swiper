@@ -284,7 +284,7 @@ render() {
 
 ### :small_blue_diamond: Some Useful Functions
 
-After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property to the ``<GallerySwiper />`` component.
+After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property and the ``<GallerySwiper />`` component has been rendered.
 
 * this.gallerySwiper.`flingToPage(index: number, velocityX: number)`
 
