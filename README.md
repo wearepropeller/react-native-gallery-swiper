@@ -189,19 +189,20 @@ Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
 `initialPage` | Index of image to be displayed first. | `number` | `0`
-`imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: Boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version \*1.3.1 update** | `Function` | `<Image/>` component
+`imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version \*1.3.1 update** | `Function` | `<Image/>` component
 `errorComponent` | Custom function to render the page of an image that couldn't be displayed. | `Function` | A `<View/>` with a stylized error
 `initialNumToRender` | How many items to render in the initial batch. **Version \*1.3.0 update**. | `number` | `3`
-`flatListProps` | Props to be passed to the underlying `FlatList`. | `Object` | `{windowSize: 3}`
+`flatListProps` | Props to be passed to the underlying `FlatList`. | `object` | `{windowSize: 3}`
 `pageMargin` | Blank margin space to show between images. | `number` | `0`
 `sensitiveScroll` | Detect rough and fast swiping gestures in order to "cushion" or slow down a swipe at the end. **Version \*1.4.0 update**. | `Boolean` | `true`
 `onPageSelected` | Fired with the index of page that has been selected. `(index: number) => void` | `Function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events). `(state: string) => void` | `Function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events). `(event: { position: number, offset: number, fraction: number }) => void` | `Function`
-`scrollViewStyle` | Custom style for the `FlatList` component. | `Object` | `{}`
-`onSingleTapConfirmed` | Executed after a single tap. `() => void` | `Function`
+`scrollViewStyle` | Custom style for the `FlatList` component. | `object` | `{}`
+`onDoubleTapConfirmed` | Executed after a double tap. `(index: number) => void` **Version \*1.8.0 update** | `Function`
+`onSingleTapConfirmed` | Executed after a single tap. `(index: number) => void` | `Function`
 `onLongPress` | Executed after a long press. `() => void` | `Function`
-`removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `Boolean` | `true`
+`removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
 <br/>
