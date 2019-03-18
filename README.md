@@ -89,7 +89,6 @@ import GallerySwiper from "react-native-gallery-swiper";
 render() {
     return (
         <GallerySwiper
-            style={{ flex: 1, backgroundColor: "black" }}
             images={[
                 // Version *1.1.0 update (or greater versions): 
                 // Can be used with different image object fieldnames.
@@ -137,7 +136,6 @@ import GallerySwiper from "react-native-gallery-swiper";
 render() {
     return (
         <GallerySwiper
-            style={{ flex: 1, backgroundColor: "black" }}
             images={[
                 { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg",
                     // Optional: Adding a dimensions or height and
@@ -188,6 +186,7 @@ render() {
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
+`style` | Styling the gallery. | `object`, `Array` | `{flex: 1, backgroundColor: "#000"}`
 `initialPage` | Index of image to be displayed first. | `number` | `0`
 `resizeMode` | The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Expecting one of `"contain"`, `"cover"`, `"stretch"`, `"repeat"`, `"center"`. **Version \*1.12.0 update**. | `string` | `"contain"`
 `imageComponent` | Custom function to render your images. `(imageProps: { imageLoaded: boolean, source: object, image: object, style: Array<object>, resizeMode: string, capInsets: object, onLoadStart: Function, onLoad: Function, ...extras }, imageDimensions: {width: number, height: number}, index: number) => React.Element` **index params included in Version \*1.3.1 update** | `Function` | `<Image/>` component
