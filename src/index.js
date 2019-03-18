@@ -27,6 +27,7 @@ export default class GallerySwiper extends PureComponent {
         onSingleTapConfirmed: PropTypes.func,
         onGalleryStateChanged: PropTypes.func,
         onLongPress: PropTypes.func,
+        enableScale: PropTypes.bool,
         removeClippedSubviews: PropTypes.bool,
         imageComponent: PropTypes.func,
         errorComponent: PropTypes.func,
@@ -258,7 +259,7 @@ export default class GallerySwiper extends PureComponent {
     renderPage (pageData, pageId) {
         const {
             onViewTransformed, onTransformGestureReleased,
-            errorComponent, imageComponent
+            enableScale, errorComponent, imageComponent
         } = this.props;
         return (
             <TransformableImage
@@ -278,6 +279,7 @@ export default class GallerySwiper extends PureComponent {
                 imageComponent={imageComponent}
                 image={pageData}
                 index={pageId}
+                enableScale={enableScale}
             />
         );
     }
