@@ -211,8 +211,8 @@ Props | Description | Type | Default
 `enableScale` | Enable or disable zoom and double tap zoom. **Version \*1.9.0 update**. | `boolean` | `true`
 `enableTranslate` | Enable or disable moving while in zoom. **Version \*1.11.0 update**. | `boolean` | `true`
 `enableResistance` | Enable or disable resistance on the image edges while panning in zoom mode. **Version \*1.14.0 update**. | `boolean` | `true`
-`resistantStrHorizontal` | Resistant value for the left and right edges of the image in zoom mode. `(dx: number) => number|string` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
-`resistantStrVertical` | Resistant value for the top and bottom edges of the image in zoom mode. `(dy: number) => number|string` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
+`resistantStrHorizontal` | Resistant value for the left and right edges of the image in zoom mode. `(dx: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
+`resistantStrVertical` | Resistant value for the top and bottom edges of the image in zoom mode. `(dy: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
