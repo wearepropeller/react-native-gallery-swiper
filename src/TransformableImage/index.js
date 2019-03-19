@@ -21,6 +21,17 @@ export default class TransformableImage extends React.Component {
         enableTransform: PropTypes.bool,
         enableScale: PropTypes.bool,
         enableTranslate: PropTypes.bool,
+        enableResistance: PropTypes.bool,
+        resistantStrHorizontal: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        resistantStrVertical: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.number,
+            PropTypes.string
+        ]),
         onTransformGestureReleased: PropTypes.func.isRequired,
         onViewTransformed: PropTypes.func.isRequired,
         imageComponent: PropTypes.func,
@@ -32,6 +43,7 @@ export default class TransformableImage extends React.Component {
         enableTransform: true,
         enableScale: true,
         enableTranslate: true,
+        enableResistance: true,
         imageComponent: undefined,
         resizeMode: "contain"
     };
@@ -223,8 +235,9 @@ export default class TransformableImage extends React.Component {
         } = this.state;
         const {
             style, imageComponent, resizeMode, enableTransform,
-            enableScale, enableTranslate, onTransformGestureReleased,
-            onViewTransformed, index
+            enableScale, enableTranslate, enableResistance,
+            resistantStrHorizontal, resistantStrVertical,
+            onTransformGestureReleased, onViewTransformed, index
         } = this.props;
 
         let maxScale = 1;
@@ -271,7 +284,9 @@ export default class TransformableImage extends React.Component {
                 enableTransform={enableTransform && imageLoaded}
                 enableScale={enableScale}
                 enableTranslate={enableTranslate}
-                enableResistance={true}
+                enableResistance={enableResistance}
+                resistantStrHorizontal={resistantStrHorizontal}
+                resistantStrVertical={resistantStrVertical}
                 onTransformGestureReleased={onTransformGestureReleased}
                 onViewTransformed={onViewTransformed}
                 maxScale={maxScale}

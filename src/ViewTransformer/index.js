@@ -22,6 +22,16 @@ export default class ViewTransformer extends React.Component {
         maxScale: PropTypes.number,
         contentAspectRatio: PropTypes.number,
         enableResistance: PropTypes.bool,
+        resistantStrHorizontal: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        resistantStrVertical: PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.number,
+            PropTypes.string
+        ]),
         onViewTransformed: PropTypes.func,
         onTransformGestureReleased: PropTypes.func,
         onDoubleTapConfirmed: PropTypes.func,
@@ -37,7 +47,9 @@ export default class ViewTransformer extends React.Component {
         enableTranslate: true,
         enableTransform: true,
         maxScale: 1,
-        enableResistance: false
+        enableResistance: false,
+        resistantStrHorizontal: (dx) => (dx /= 3),
+        resistantStrVertical: (dy) => (dy /= 3)
     };
 
     constructor (props) {
@@ -356,12 +368,71 @@ export default class ViewTransformer extends React.Component {
 
         if ((dx > 0 && availablePanDistance.left < 0) ||
         (dx < 0 && availablePanDistance.right < 0)) {
-            dx /= 3;
+            const { resistantStrHorizontal } = this.props;
+            switch (typeof resistantStrHorizontal) {
+                case "function":
+                    const returnValue = resistantStrHorizontal(dx);
+                    if (typeof returnValue === "number") {
+                        dx = returnValue;
+                        break;
+                    }
+                    if (typeof returnValue === "string") {
+                        dx = parseFloat(returnValue);
+                        break;
+                    }
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                        "react-native-gallery-swiper",
+                        "Invalid return value for 'resistantStrHorizontal' prop. " +
+                        "Expecting one of 'number' or 'string'."
+                    );
+                    dx = dx /= 3;
+                    break;
+                case "number":
+                    dx = resistantStrHorizontal;
+                    break;
+                case "string":
+                    dx = parseFloat(resistantStrHorizontal);
+                    break;
+                default:
+                    dx = dx /= 3;
+                    break;
+            }
         }
         if ((dy > 0 && availablePanDistance.top < 0) ||
         (dy < 0 && availablePanDistance.bottom < 0)) {
-            dy /= 3;
+            const { resistantStrVertical } = this.props;
+            switch (typeof resistantStrVertical) {
+                case "function":
+                    const returnValue = resistantStrVertical(dx);
+                    if (typeof returnValue === "number") {
+                        dx = returnValue;
+                        break;
+                    }
+                    if (typeof returnValue === "string") {
+                        dx = parseFloat(returnValue);
+                        break;
+                    }
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                        "react-native-gallery-swiper",
+                        "Invalid return value for 'resistantStrVertical' prop. " +
+                        "Expecting one of 'number' or 'string'."
+                    );
+                    dx = dx /= 3;
+                    break;
+                case "number":
+                    dy = resistantStrVertical;
+                    break;
+                case "string":
+                    dy = parseFloat(resistantStrVertical);
+                    break;
+                default:
+                    dy = dy /= 3;
+                    break;
+            }
         }
+
         return { dx, dy };
     }
 
