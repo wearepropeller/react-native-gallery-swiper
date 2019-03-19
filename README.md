@@ -42,8 +42,6 @@
 ### 10.  [Contribute](#large_blue_diamond-contribute)
 ### 11.  [License](#large_blue_diamond-license)
 
-Improved and changed on top of `react-native-gallery`.
-
 <br/>
 <br/>
 <br/>
@@ -81,6 +79,8 @@ $ yarn add react-native-gallery-swiper
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
 #### :information_source: Local images must have a defined `dimensions` field with `width` and `height` or just `height` and `width`.
+
+> If you like [`react-native-gallery-swiper`](https://github.com/Luehang/react-native-gallery-swiper), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-gallery-swiper). Thanks.
 
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
@@ -128,6 +128,8 @@ render() {
 <br/>
 
 ## :large_blue_diamond: Performance Optimization List Example
+
+> If you like [`react-native-gallery-swiper`](https://github.com/Luehang/react-native-gallery-swiper), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-gallery-swiper). Thanks.
 
 ```javascript
 import GallerySwiper from "react-native-gallery-swiper";
@@ -183,6 +185,8 @@ render() {
 
 # :large_blue_diamond: Props
 
+> If you like [`react-native-gallery-swiper`](https://github.com/Luehang/react-native-gallery-swiper), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-gallery-swiper). Thanks.
+
 Props | Description | Type | Default
 ------ | ------ | ------ | ------
 `images` | An array of objects.  `source`, `source.uri`, `uri`, `URI`, `url` or `URL` is a required field (if multiple similar fields in an image object, priority will go from start `source` to last `URL`). EX. `[{ source: require("yourApp/image.png"), dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg", dimensions: { width: 1080, height: 1920 } }, { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg"}]` | `Array` | Required
@@ -204,6 +208,9 @@ Props | Description | Type | Default
 `onLongPress` | Executed after a long press. `(gestureState: object, index: number) => void` **index params in Version \*1.10.0 update**. | `Function`
 `enableScale` | Enable or disable zoom and double tap zoom. **Version \*1.9.0 update**. | `boolean` | `true`
 `enableTranslate` | Enable or disable moving while in zoom. **Version \*1.11.0 update**. | `boolean` | `true`
+`enableResistance` | Enable or disable resistance on the image edges while panning in zoom mode. **Version \*1.13.0 update**. | `boolean` | `true`
+`resistantStrHorizontal` | Resistant value for the left and right edges of the image in zoom mode. **Version \*1.13.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
+`resistantStrVertical` | Resistant value for the top and bottom edges of the image in zoom mode. **Version \*1.13.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
@@ -293,12 +300,12 @@ After implementing the `refPage={(component) => (this.gallerySwiper = component)
     * `index: number`: The **required** index of desired page.
     * `velocityX: number`: The **required** velocity X and should be above `> 0.00`.
 
-* this.gallerySwiper.`scrollToPage(index: number, immediate: Boolean)`
+* this.gallerySwiper.`scrollToPage(index: number, immediate: boolean)`
 
     This `Function` executes a "scroll" to a page:
 
     * `index: number`: The **required** index of desired page.
-    * `immediate: Boolean`: Whether to go to page immediately without animation or not.  Default is `false`.
+    * `immediate: boolean`: Whether to go to page immediately without animation or not.  Default is `false`.
 
 <br/>
 <br/>
