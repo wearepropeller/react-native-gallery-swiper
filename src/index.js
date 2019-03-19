@@ -28,6 +28,8 @@ export default class GallerySwiper extends PureComponent {
         onSingleTapConfirmed: PropTypes.func,
         onGalleryStateChanged: PropTypes.func,
         onLongPress: PropTypes.func,
+        onEndReached: PropTypes.func,
+        onEndReachedThreshold: PropTypes.number,
         enableScale: PropTypes.bool,
         enableTranslate: PropTypes.bool,
         enableResistance: PropTypes.bool,
@@ -55,7 +57,8 @@ export default class GallerySwiper extends PureComponent {
         },
         imageComponent: undefined,
         scrollViewStyle: {},
-        flatListProps: DEFAULT_FLAT_LIST_PROPS
+        flatListProps: DEFAULT_FLAT_LIST_PROPS,
+        onEndReachedThreshold: 0.5
     };
 
     imageRefs = new Map();
@@ -263,6 +266,13 @@ export default class GallerySwiper extends PureComponent {
     onPageSelected (page) {
         this.currentPage = page;
         this.props.onPageSelected && this.props.onPageSelected(page);
+
+        if (
+            this.props.onEndReached &&
+            page + 1 > this.props.onEndReachedThreshold * this.props.images.length
+        ) {
+            this.props.onEndReached && this.props.onEndReached();
+        }
     }
 
     onPageScrollStateChanged (state) {
