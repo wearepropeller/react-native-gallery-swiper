@@ -207,7 +207,9 @@ Props | Description | Type | Default
 `onSingleTapConfirmed` | Executed after a single tap. `(index: number) => void` | `Function`
 `onLongPress` | Executed after a long press. `(gestureState: object, index: number) => void` **index params in Version \*1.10.0 update**. | `Function`
 `onViewTransformed` | Executed while being transformed in anyway (view transformer). `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.16.0 update**. | `Function`
-`onPinchTransforming` | Executed while pinching to transform view or zoom (view transformer). **Version \*1.17.0 update**. | `Function`
+`onPinchTransforming` | Executed while pinching to transform view or zoom (view transformer). `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.17.0 update**. | `Function`
+`onPinchStartReached` | Executed after scaling out or zooming out to initial size using the pinch gesture. `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.18.0 update**. | `Function`
+`onPinchEndReached` | Executed after scaling in or zooming in to `maxScale` using the pinch gesture. `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.18.0 update**. | `Function`
 `onTransformGestureReleased` | Executed after a transform guesture released (view transformer). `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.16.0 update**. | `Function`
 `onDoubleTapStartReached` | Executed after scaling out or zooming out using double tap. `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.17.0 update**. | `Function`
 `onDoubleTapEndReached` | Executed after scaling in or zooming in using double tap. `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.17.0 update**. | `Function`
