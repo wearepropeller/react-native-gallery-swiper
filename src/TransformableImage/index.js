@@ -35,6 +35,8 @@ export default class TransformableImage extends React.Component {
         ]),
         maxOverScrollDistance: PropTypes.number,
         onPinchTransforming: PropTypes.func,
+        onPinchStartReached: PropTypes.func,
+        onPinchEndReached: PropTypes.func,
         onViewTransformed: PropTypes.func.isRequired,
         onTransformGestureReleased: PropTypes.func.isRequired,
         onDoubleTapStartReached: PropTypes.func,
@@ -243,7 +245,8 @@ export default class TransformableImage extends React.Component {
             enableScale, maxScale, enableTranslate, enableResistance,
             resistantStrHorizontal, resistantStrVertical,
             maxOverScrollDistance, onViewTransformed,
-            onPinchTransforming, onTransformGestureReleased,
+            onPinchTransforming,  onPinchStartReached,
+            onPinchEndReached, onTransformGestureReleased,
             onDoubleTapStartReached, onDoubleTapEndReached,
             index
         } = this.props;
@@ -302,6 +305,8 @@ export default class TransformableImage extends React.Component {
                 maxOverScrollDistance={maxOverScrollDistance}
                 onViewTransformed={onViewTransformed}
                 onPinchTransforming={onPinchTransforming}
+                onPinchStartReached={onPinchStartReached}
+                onPinchEndReached={onPinchEndReached}
                 onTransformGestureReleased={onTransformGestureReleased}
                 onDoubleTapStartReached={onDoubleTapStartReached}
                 onDoubleTapEndReached={onDoubleTapEndReached}

@@ -34,6 +34,8 @@ export default class ViewTransformer extends React.Component {
         ]),
         onViewTransformed: PropTypes.func,
         onPinchTransforming: PropTypes.func,
+        onPinchStartReached: PropTypes.func,
+        onPinchEndReached: PropTypes.func,
         onTransformGestureReleased: PropTypes.func,
         onDoubleTapStartReached: PropTypes.func,
         onDoubleTapEndReached: PropTypes.func,
@@ -246,6 +248,17 @@ export default class ViewTransformer extends React.Component {
         }
 
         this.updateTransform(transform);
+
+        const curScale = this.state.scale;
+        if (curScale <= 1) {
+            this.props.onPinchStartReached &&
+                this.props.onPinchStartReached(transform);
+        }
+        if (curScale >= this.props.maxScale) {
+            this.props.onPinchEndReached &&
+                this.props.onPinchEndReached(transform);
+        }
+
         return true;
     }
 
@@ -363,7 +376,10 @@ export default class ViewTransformer extends React.Component {
         rect = alignedRect(rect, this.viewPortRect());
         this.animate(rect);
 
-        if (this.props.onDoubleTapStartReached) {
+        if (
+            this.props.onDoubleTapStartReached ||
+            this.props.onDoubleTapEndReached
+        ) {
             const transform = getTransform(this.contentRect(), rect);
             if (curScale > (1 + this.props.maxScale) / 2) {
                 this.props.onDoubleTapStartReached &&

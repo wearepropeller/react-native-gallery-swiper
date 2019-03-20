@@ -25,6 +25,8 @@ export default class GallerySwiper extends PureComponent {
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
         onPinchTransforming: PropTypes.func,
+        onPinchStartReached: PropTypes.func,
+        onPinchEndReached: PropTypes.func,
         onDoubleTapStartReached: PropTypes.func,
         onDoubleTapEndReached: PropTypes.func,
         onDoubleTapConfirmed: PropTypes.func,
@@ -292,8 +294,8 @@ export default class GallerySwiper extends PureComponent {
 
     renderPage (pageData, pageId) {
         const {
-            onViewTransformed, onPinchTransforming, onTransformGestureReleased,
-            onDoubleTapStartReached, onDoubleTapEndReached, resizeMode,
+            onViewTransformed, onPinchTransforming, onPinchStartReached, onPinchEndReached,
+            onTransformGestureReleased, onDoubleTapStartReached, onDoubleTapEndReached, resizeMode,
             enableResistance, enableScale, maxScale, enableTranslate, resistantStrHorizontal,
             resistantStrVertical, maxOverScrollDistance, errorComponent, imageComponent
         } = this.props;
@@ -306,6 +308,14 @@ export default class GallerySwiper extends PureComponent {
                 onPinchTransforming={(transform => {
                     onPinchTransforming &&
                         onPinchTransforming(transform, pageId);
+                })}
+                onPinchStartReached={(transform => {
+                    onPinchStartReached &&
+                        onPinchStartReached(transform, pageId);
+                })}
+                onPinchEndReached={(transform => {
+                    onPinchEndReached &&
+                        onPinchEndReached(transform, pageId);
                 })}
                 onTransformGestureReleased={((transform) => {
                     // need the "return" here because the
