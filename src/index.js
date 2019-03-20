@@ -28,9 +28,12 @@ export default class GallerySwiper extends PureComponent {
         onSingleTapConfirmed: PropTypes.func,
         onGalleryStateChanged: PropTypes.func,
         onLongPress: PropTypes.func,
+        onViewTransformed: PropTypes.func,
+        onTransformGestureReleased: PropTypes.func,
         onEndReached: PropTypes.func,
         onEndReachedThreshold: PropTypes.number,
         enableScale: PropTypes.bool,
+        maxScale: PropTypes.number,
         enableTranslate: PropTypes.bool,
         enableResistance: PropTypes.bool,
         resistantStrHorizontal: PropTypes.oneOfType([
@@ -43,6 +46,7 @@ export default class GallerySwiper extends PureComponent {
             PropTypes.number,
             PropTypes.string
         ]),
+        maxOverScrollDistance: PropTypes.number,
         removeClippedSubviews: PropTypes.bool,
         imageComponent: PropTypes.func,
         errorComponent: PropTypes.func,
@@ -287,7 +291,7 @@ export default class GallerySwiper extends PureComponent {
         const {
             onViewTransformed, onTransformGestureReleased, resizeMode,
             enableResistance, enableScale, enableTranslate, resistantStrHorizontal,
-            resistantStrVertical, errorComponent, imageComponent
+            resistantStrVertical, maxOverScrollDistance, errorComponent, imageComponent
         } = this.props;
         return (
             <TransformableImage
@@ -312,6 +316,7 @@ export default class GallerySwiper extends PureComponent {
                 enableResistance={enableResistance}
                 resistantStrHorizontal={resistantStrHorizontal}
                 resistantStrVertical={resistantStrVertical}
+                maxOverScrollDistance={maxOverScrollDistance}
                 resizeMode={resizeMode}
             />
         );

@@ -32,6 +32,7 @@ export default class TransformableImage extends React.Component {
             PropTypes.number,
             PropTypes.string
         ]),
+        maxOverScrollDistance: PropTypes.number,
         onTransformGestureReleased: PropTypes.func.isRequired,
         onViewTransformed: PropTypes.func.isRequired,
         imageComponent: PropTypes.func,
@@ -237,7 +238,8 @@ export default class TransformableImage extends React.Component {
             style, imageComponent, resizeMode, enableTransform,
             enableScale, enableTranslate, enableResistance,
             resistantStrHorizontal, resistantStrVertical,
-            onTransformGestureReleased, onViewTransformed, index
+            maxOverScrollDistance, onTransformGestureReleased,
+            onViewTransformed, index
         } = this.props;
 
         let maxScale = 1;
@@ -287,6 +289,7 @@ export default class TransformableImage extends React.Component {
                 enableResistance={enableResistance}
                 resistantStrHorizontal={resistantStrHorizontal}
                 resistantStrVertical={resistantStrVertical}
+                maxOverScrollDistance={maxOverScrollDistance}
                 onTransformGestureReleased={onTransformGestureReleased}
                 onViewTransformed={onViewTransformed}
                 maxScale={maxScale}
