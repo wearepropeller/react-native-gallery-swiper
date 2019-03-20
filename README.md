@@ -214,7 +214,7 @@ Props | Description | Type | Default
 `onEndReached` | Called once when the page index gets within the `onEndReachedThreshold` of the `images` content. `() => void` **Version \*1.15.0 update**. | `Function`
 `onEndReachedThreshold` | How far from the end (in units of visible length of the list) of the list of images must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the images. **Version \*1.15.0 update**. | `number` | `0.5`
 `enableScale` | Enable or disable zoom and double tap zoom (view transformer). **Version \*1.9.0 update**. | `boolean` | `true`
-`maxScale` | Max zoom (view transformer). **Version \*1.16.0 update**. | `number` | `Math.max(imageWidth / viewWidth, imageHeight / viewHeight)`
+`maxScale` | Max zoom (view transformer). **Version \*1.17.0 update**. | `number` | `Math.max(imageWidth / viewWidth, imageHeight / viewHeight)`
 `enableTranslate` | Enable or disable moving while in zoom (view transformer). **Version \*1.11.0 update**. | `boolean` | `true`
 `enableResistance` | Enable or disable resistance over panning (view transformer). **Version \*1.14.0 update**. | `boolean` | `true`
 `resistantStrHorizontal` | Resistant value for left and right panning (view transformer). `(dx: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
