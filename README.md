@@ -206,13 +206,17 @@ Props | Description | Type | Default
 `onDoubleTapConfirmed` | Executed after a double tap. `(index: number) => void` **Version \*1.8.0 update** | `Function`
 `onSingleTapConfirmed` | Executed after a single tap. `(index: number) => void` | `Function`
 `onLongPress` | Executed after a long press. `(gestureState: object, index: number) => void` **index params in Version \*1.10.0 update**. | `Function`
+`onViewTransformed` | Executed while being transformed (view transformer). `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.16.0 update**. | `Function`
+`onTransformGestureReleased` | Executed after a transform guesture released (view transformer). `(transform: { scale: number, translateX: number, translateY: number }, index: number) => void` **Version \*1.16.0 update**. | `Function`
 `onEndReached` | Called once when the page index gets within the `onEndReachedThreshold` of the `images` content. `() => void` **Version \*1.15.0 update**. | `Function`
 `onEndReachedThreshold` | How far from the end (in units of visible length of the list) of the list of images must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the images. **Version \*1.15.0 update**. | `number` | `0.5`
-`enableScale` | Enable or disable zoom and double tap zoom. **Version \*1.9.0 update**. | `boolean` | `true`
-`enableTranslate` | Enable or disable moving while in zoom. **Version \*1.11.0 update**. | `boolean` | `true`
-`enableResistance` | Enable or disable resistance on the image edges while panning. **Version \*1.14.0 update**. | `boolean` | `true`
-`resistantStrHorizontal` | Resistant value for the left and right edges of the image while panning. `(dx: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
-`resistantStrVertical` | Resistant value for the top and bottom edges of the image while panning. `(dy: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
+`enableScale` | Enable or disable zoom and double tap zoom (view transformer). **Version \*1.9.0 update**. | `boolean` | `true`
+`maxScale` | Max zoom (view transformer). **Version \*1.16.0 update**. | `number` | `1`
+`enableTranslate` | Enable or disable moving while in zoom (view transformer). **Version \*1.11.0 update**. | `boolean` | `true`
+`enableResistance` | Enable or disable resistance over panning (view transformer). **Version \*1.14.0 update**. | `boolean` | `true`
+`resistantStrHorizontal` | Resistant value for left and right panning (view transformer). `(dx: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dx) => (dx /= 3)`
+`resistantStrVertical` | Resistant value for top and bottom panning (view transformer). `(dy: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
+`maxOverScrollDistance` | A number used to determine final scroll position triggered by fling (view transformer). **Version \*1.16.0 update**. | `number` | `20`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
 `refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
 
