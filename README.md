@@ -6,6 +6,8 @@
 
 > An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
+> Check out the [docs](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) for a complete documentation.
+
 <br/>
 <br/>
 <br/>
