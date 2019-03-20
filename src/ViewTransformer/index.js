@@ -33,7 +33,10 @@ export default class ViewTransformer extends React.Component {
             PropTypes.string
         ]),
         onViewTransformed: PropTypes.func,
+        onPinchTransforming: PropTypes.func,
         onTransformGestureReleased: PropTypes.func,
+        onDoubleTapStartReached: PropTypes.func,
+        onDoubleTapEndReached: PropTypes.func,
         onDoubleTapConfirmed: PropTypes.func,
         onSingleTapConfirmed: PropTypes.func,
         onLayout: PropTypes.func,
@@ -231,6 +234,7 @@ export default class ViewTransformer extends React.Component {
                 new Transform(scaleBy, dx, dy, { x: pivotX, y: pivotY })
             );
             transform = getTransform(this.contentRect(), rect);
+            this.props.onPinchTransforming && this.props.onPinchTransforming(transform);
         } else {
             if (Math.abs(dx) > 2 * Math.abs(dy)) {
                 dy = 0;
@@ -358,6 +362,17 @@ export default class ViewTransformer extends React.Component {
         );
         rect = alignedRect(rect, this.viewPortRect());
         this.animate(rect);
+
+        if (this.props.onDoubleTapStartReached) {
+            const transform = getTransform(this.contentRect(), rect);
+            if (curScale > (1 + this.props.maxScale) / 2) {
+                this.props.onDoubleTapStartReached &&
+                    this.props.onDoubleTapStartReached(transform);
+            } else {
+                this.props.onDoubleTapEndReached &&
+                    this.props.onDoubleTapEndReached(transform);
+            }
+        }
     }
 
     applyResistance (dx, dy) {

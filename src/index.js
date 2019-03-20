@@ -24,6 +24,9 @@ export default class GallerySwiper extends PureComponent {
         onPageSelected: PropTypes.func,
         onPageScrollStateChanged: PropTypes.func,
         onPageScroll: PropTypes.func,
+        onPinchTransforming: PropTypes.func,
+        onDoubleTapStartReached: PropTypes.func,
+        onDoubleTapEndReached: PropTypes.func,
         onDoubleTapConfirmed: PropTypes.func,
         onSingleTapConfirmed: PropTypes.func,
         onGalleryStateChanged: PropTypes.func,
@@ -289,8 +292,9 @@ export default class GallerySwiper extends PureComponent {
 
     renderPage (pageData, pageId) {
         const {
-            onViewTransformed, onTransformGestureReleased, resizeMode,
-            enableResistance, enableScale, enableTranslate, resistantStrHorizontal,
+            onViewTransformed, onPinchTransforming, onTransformGestureReleased,
+            onDoubleTapStartReached, onDoubleTapEndReached, resizeMode,
+            enableResistance, enableScale, maxScale, enableTranslate, resistantStrHorizontal,
             resistantStrVertical, maxOverScrollDistance, errorComponent, imageComponent
         } = this.props;
         return (
@@ -299,12 +303,24 @@ export default class GallerySwiper extends PureComponent {
                     onViewTransformed &&
                         onViewTransformed(transform, pageId);
                 })}
+                onPinchTransforming={(transform => {
+                    onPinchTransforming &&
+                        onPinchTransforming(transform, pageId);
+                })}
                 onTransformGestureReleased={((transform) => {
                     // need the "return" here because the
                     // return value is checked in ViewTransformer
                     return onTransformGestureReleased &&
                         onTransformGestureReleased(transform, pageId);
                 })}
+                onDoubleTapStartReached={(transform) => {
+                    onDoubleTapStartReached &&
+                        onDoubleTapStartReached(transform, pageId);
+                }}
+                onDoubleTapEndReached={(transform) => {
+                    onDoubleTapEndReached &&
+                        onDoubleTapEndReached(transform, pageId);
+                }}
                 ref={((ref) => { this.imageRefs.set(pageId, ref); })}
                 key={"innerImage#" + pageId}
                 errorComponent={errorComponent}
@@ -312,6 +328,7 @@ export default class GallerySwiper extends PureComponent {
                 image={pageData}
                 index={pageId}
                 enableScale={enableScale}
+                maxScale={maxScale}
                 enableTranslate={enableTranslate}
                 enableResistance={enableResistance}
                 resistantStrHorizontal={resistantStrHorizontal}

@@ -20,6 +20,7 @@ export default class TransformableImage extends React.Component {
         onLoadStart: PropTypes.func,
         enableTransform: PropTypes.bool,
         enableScale: PropTypes.bool,
+        maxScale: PropTypes.number,
         enableTranslate: PropTypes.bool,
         enableResistance: PropTypes.bool,
         resistantStrHorizontal: PropTypes.oneOfType([
@@ -33,8 +34,11 @@ export default class TransformableImage extends React.Component {
             PropTypes.string
         ]),
         maxOverScrollDistance: PropTypes.number,
-        onTransformGestureReleased: PropTypes.func.isRequired,
+        onPinchTransforming: PropTypes.func,
         onViewTransformed: PropTypes.func.isRequired,
+        onTransformGestureReleased: PropTypes.func.isRequired,
+        onDoubleTapStartReached: PropTypes.func,
+        onDoubleTapEndReached: PropTypes.func,
         imageComponent: PropTypes.func,
         resizeMode: PropTypes.string,
         errorComponent: PropTypes.func,
@@ -236,13 +240,15 @@ export default class TransformableImage extends React.Component {
         } = this.state;
         const {
             style, imageComponent, resizeMode, enableTransform,
-            enableScale, enableTranslate, enableResistance,
+            enableScale, maxScale, enableTranslate, enableResistance,
             resistantStrHorizontal, resistantStrVertical,
-            maxOverScrollDistance, onTransformGestureReleased,
-            onViewTransformed, index
+            maxOverScrollDistance, onViewTransformed,
+            onPinchTransforming, onTransformGestureReleased,
+            onDoubleTapStartReached, onDoubleTapEndReached,
+            index
         } = this.props;
 
-        let maxScale = 1;
+        let resolvedMaxScale = 1;
         let contentAspectRatio;
         let width, height; // imageDimensions
 
@@ -254,8 +260,12 @@ export default class TransformableImage extends React.Component {
         if (width && height) {
             contentAspectRatio = width / height;
             if (viewWidth && viewHeight) {
-                maxScale = Math.max(width / viewWidth, height / viewHeight);
-                maxScale = Math.max(1, maxScale);
+                if (!maxScale) {
+                    resolvedMaxScale = Math.max(width / viewWidth, height / viewHeight);
+                    resolvedMaxScale = Math.max(1, resolvedMaxScale);
+                } else {
+                    resolvedMaxScale = maxScale;
+                }
             }
         }
 
@@ -290,9 +300,12 @@ export default class TransformableImage extends React.Component {
                 resistantStrHorizontal={resistantStrHorizontal}
                 resistantStrVertical={resistantStrVertical}
                 maxOverScrollDistance={maxOverScrollDistance}
-                onTransformGestureReleased={onTransformGestureReleased}
                 onViewTransformed={onViewTransformed}
-                maxScale={maxScale}
+                onPinchTransforming={onPinchTransforming}
+                onTransformGestureReleased={onTransformGestureReleased}
+                onDoubleTapStartReached={onDoubleTapStartReached}
+                onDoubleTapEndReached={onDoubleTapEndReached}
+                maxScale={resolvedMaxScale}
                 contentAspectRatio={contentAspectRatio}
                 onLayout={this.onLayout}
                 style={style}>
