@@ -50,9 +50,9 @@
   ],
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react-mixin": "^5.0.0",
-    "react-timer-mixin": "^0.13.4",
-    "react-native-scrolling": "^1.0.0"
+    "react-native-easy-guesture-responder": "^1.0.0",
+    "react-native-image-transformer": "^1.0.0",
+    "react-native-page-list": "^1.0.0"
   },
   "peerDependencies": {
     "react": "*",

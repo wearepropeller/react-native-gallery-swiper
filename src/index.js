@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import { View, ViewPropTypes } from "react-native";
 import PropTypes from "prop-types";
-import { createResponder } from "./GestureResponder";
-import TransformableImage from "./TransformableImage";
-import ViewPager from "./ViewPager";
+import { createResponder } from "react-native-easy-guesture-responder";
+import ImageTransformer from "react-native-image-transformer";
+import PageList from "react-native-page-list";
 
 const DEFAULT_FLAT_LIST_PROPS = {
     windowSize: 3
@@ -300,7 +300,7 @@ export default class GallerySwiper extends PureComponent {
             resistantStrVertical, maxOverScrollDistance, errorComponent, imageComponent
         } = this.props;
         return (
-            <TransformableImage
+            <ImageTransformer
                 onViewTransformed={(transform) => {
                     onViewTransformed &&
                         onViewTransformed(transform, pageId);
@@ -392,7 +392,7 @@ export default class GallerySwiper extends PureComponent {
         };
 
         return (
-            <ViewPager
+            <PageList
                 {...this.props}
                 flatListProps={flatListProps}
                 ref={(component) => {
