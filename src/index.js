@@ -301,28 +301,28 @@ export default class GallerySwiper extends PureComponent {
         } = this.props;
         return (
             <TransformableImage
-                onViewTransformed={((transform) => {
+                onViewTransformed={(transform) => {
                     onViewTransformed &&
                         onViewTransformed(transform, pageId);
-                })}
-                onPinchTransforming={(transform => {
+                }}
+                onPinchTransforming={(transform) => {
                     onPinchTransforming &&
                         onPinchTransforming(transform, pageId);
-                })}
-                onPinchStartReached={(transform => {
+                }}
+                onPinchStartReached={(transform) => {
                     onPinchStartReached &&
                         onPinchStartReached(transform, pageId);
-                })}
-                onPinchEndReached={(transform => {
+                }}
+                onPinchEndReached={(transform) => {
                     onPinchEndReached &&
                         onPinchEndReached(transform, pageId);
-                })}
-                onTransformGestureReleased={((transform) => {
+                }}
+                onTransformGestureReleased={(transform) => {
                     // need the "return" here because the
                     // return value is checked in ViewTransformer
                     return onTransformGestureReleased &&
                         onTransformGestureReleased(transform, pageId);
-                })}
+                }}
                 onDoubleTapStartReached={(transform) => {
                     onDoubleTapStartReached &&
                         onDoubleTapStartReached(transform, pageId);
@@ -331,7 +331,7 @@ export default class GallerySwiper extends PureComponent {
                     onDoubleTapEndReached &&
                         onDoubleTapEndReached(transform, pageId);
                 }}
-                ref={((ref) => { this.imageRefs.set(pageId, ref); })}
+                ref={(ref) => { this.imageRefs.set(pageId, ref); }}
                 key={"innerImage#" + pageId}
                 errorComponent={errorComponent}
                 imageComponent={imageComponent}
