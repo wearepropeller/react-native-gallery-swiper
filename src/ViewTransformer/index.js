@@ -2,7 +2,7 @@ import React from "react";
 import {
     View, Animated, Easing, NativeModules, findNodeHandle
 } from "react-native";
-import Scroller from "../Scroller";
+import Scrolling from "react-native-scrolling";
 import PropTypes from "prop-types";
 import { createResponder } from "../GestureResponder";
 import {
@@ -80,7 +80,7 @@ export default class ViewTransformer extends React.Component {
         this.transformedContentRect = this.transformedContentRect.bind(this);
         this.animate = this.animate.bind(this);
 
-        this.scroller = new Scroller(true, (dx, dy, scroller) => {
+        this.scroller = new Scrolling(true, (dx, dy, scroller) => {
             if (dx === 0 && dy === 0 && scroller.isFinished()) {
                 this.animateBounce();
                 return;

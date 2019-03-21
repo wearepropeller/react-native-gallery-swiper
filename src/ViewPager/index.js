@@ -7,7 +7,7 @@ import {
     Dimensions
 } from "react-native";
 import PropTypes from "prop-types";
-import Scroller from "../Scroller";
+import Scrolling from "react-native-scrolling";
 import { createResponder } from "../GestureResponder";
 
 const MIN_FLING_VELOCITY = 0.5;
@@ -65,11 +65,11 @@ export default class ViewPager extends PureComponent {
         this.onResponderRelease = this.onResponderRelease.bind(this);
         this.getItemLayout = this.getItemLayout.bind(this);
 
-        this.scroller = this.createScroller();
+        this.scroller = this.createScrolling();
     }
 
-    createScroller () {
-        return new Scroller(true, (dx, dy, scroller) => {
+    createScrolling () {
+        return new Scrolling(true, (dx, dy, scroller) => {
             if (dx === 0 && dy === 0 && scroller.isFinished()) {
                 if (!this.activeGesture) {
                     this.onPageScrollStateChanged("idle");
