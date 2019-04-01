@@ -1,12 +1,16 @@
 <a href="https://luehangs.site/lue_hang/projects/react-native-gallery-swiper"><img src="https://luehangs.site/images/react-native-gallery-swiper-main.jpg" alt="react-native-gallery-swiper"/></a>
 
-<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
-<br/>
-<br/>
+<h1 align="center">
+    React Native Gallery Swiper
+</h1>
 
 > An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
 > Check out the [docs](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) for a complete documentation.
+
+<br/>
+<br/>
+<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
 
 <br/>
 <br/>
@@ -17,7 +21,9 @@
 <br/>
 <br/>
 
-![react-native-gallery-swiper](https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif)
+<h1 align="center">
+    <image src="https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif" alt="react-native-gallery-swiper" />
+</h1>
 
 #### :information_source: Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH LABS](https://www.luehangs.site).
 
@@ -30,19 +36,19 @@
 <br/>
 <br/>
 
-# Index
+# :open_file_folder: Index
 
-### 1.  [Install](#large_blue_diamond-install)
-### 2.  [Usage Example](#large_blue_diamond-usage-example)
-### 3.  [Performance Optimization List Example](#large_blue_diamond-performance-optimization-list-example)
-### 4.  [API](#large_blue_diamond-api)
-### 5.  :books: [Props](#large_blue_diamond-props)
-### 6.  [Scroll State and Events](#large_blue_diamond-scroll-state-and-events)
-### 7.  [Helpful Hints](#large_blue_diamond-helpful-hints)
-### 8.  [Example Project](#large_blue_diamond-example-project)
-### 9.  [Author](#large_blue_diamond-author)
-### 10.  [Contribute](#large_blue_diamond-contribute)
-### 11.  [License](#large_blue_diamond-license)
+### 1.  [Install](#gem-install)
+### 2.  [Usage Example](#tada-usage-example)
+### 3.  [Performance Optimization List Example](#watch-performance-optimization-list-example)
+### 4.  [API](#nut_and_bolt-api)
+### 5.  :books: [Props](#books-props)
+### 6.  [Scroll State and Events](#memo-scroll-state-and-events)
+### 7.  [Helpful Hints](#memo-helpful-hints)
+### 8.  [Example Project](#clapper-example-project)
+### 9.  [Author](#santa-author)
+### 10.  [Contribute](#clap-contribute)
+### 11.  [License](#page_facing_up-license)
 
 <br/>
 <br/>
@@ -53,7 +59,7 @@
 <br/>
 <br/>
 
-## :large_blue_diamond: Install
+## :gem: Install
 
 Type in the following to the command line to install the dependency.
 
@@ -76,7 +82,7 @@ $ yarn add react-native-gallery-swiper
 <br/>
 <br/>
 
-## :large_blue_diamond: Usage Example
+## :tada: Usage Example
 
 Add an ``import`` to the top of the file.  At minimal, declare the ``GallerySwiper`` component in the ``render()`` method providing an array of data for the ``images`` prop.
 
@@ -129,7 +135,7 @@ render() {
 <br/>
 <br/>
 
-## :large_blue_diamond: Performance Optimization List Example
+## :watch: Performance Optimization List Example
 
 > If you like [`react-native-gallery-swiper`](https://github.com/Luehang/react-native-gallery-swiper), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-gallery-swiper). Thanks.
 
@@ -179,13 +185,13 @@ render() {
 <br/>
 <br/>
 
-## :large_blue_diamond: API
+## :nut_and_bolt: API
 
 ``<GallerySwiper />`` component accepts the following props...
 
 <br/>
 
-# :large_blue_diamond: Props
+# :books: Props
 
 > If you like [`react-native-gallery-swiper`](https://github.com/Luehang/react-native-gallery-swiper), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-gallery-swiper). Thanks.
 
@@ -233,7 +239,7 @@ Props | Description | Type | Default
 <br/>
 <br/>
 
-## :large_blue_diamond: Scroll state and events
+## :memo: Scroll state and events
 
 * `onPageScroll(event: { position: number, offset: number, fraction: number }) => void`
 
@@ -260,7 +266,7 @@ Props | Description | Type | Default
 <br/>
 <br/>
 
-## :large_blue_diamond: Helpful Hints
+## :memo: Helpful Hints
 
 :information_source: **Version \*1.2.0 update (or greater versions):**  `refPage` prop
 
@@ -301,7 +307,7 @@ render() {
 <br/>
 <br/>
 
-### :small_blue_diamond: Some Useful Functions
+### :memo: Some Useful Functions
 
 After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property and the ``<GallerySwiper />`` component has been rendered.
 
@@ -328,7 +334,7 @@ After implementing the `refPage={(component) => (this.gallerySwiper = component)
 <br/>
 <br/>
 
-## :large_blue_diamond: Example Project
+## :clapper: Example Project
 
 Perform steps 1-2 to run locally:
 
@@ -377,7 +383,7 @@ $ cd react-native-gallery-swiper/example/
 <br/>
 <br/>
 
-## :large_blue_diamond: Author
+## :santa: Author
 
 <a href="https://www.facebook.com/lue.hang">
 <img src="https://www.luehangs.site/images/lue-hang2018-circle-150px.png"/>
@@ -394,19 +400,19 @@ Free and made possible along with costly maintenance and updates by [Lue Hang](h
 <br/>
 <br/>
 
-## :large_blue_diamond: Contribute
+## :clap: Contribute
 
 [Pull requests](https://github.com/Luehang/react-native-gallery-swiper/pulls) are welcomed.
 
 <br/>
 
-### :large_blue_diamond: Contributors
+### :man: Contributors
 
 Contributors will be posted here.
 
 <br/>
 
-### :small_blue_diamond: Beginners
+### :baby: Beginners
 
 Not sure where to start, or a beginner? Take a look at the [issues page](https://github.com/Luehang/react-native-gallery-swiper/issues).
 
@@ -419,6 +425,6 @@ Not sure where to start, or a beginner? Take a look at the [issues page](https:/
 <br/>
 <br/>
 
-## :large_blue_diamond: License
+## :page_facing_up: License
 
 MIT © [Lue Hang](https://luehangs.site), as found in the LICENSE file.
