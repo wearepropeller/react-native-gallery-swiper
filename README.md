@@ -22,7 +22,7 @@
 <br/>
 
 <h1 align="center">
-    <image src="https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif" alt="react-native-gallery-swiper" />
+    <img src="https://www.luehangs.site/videos/react-native-gallery-swiper-demo.gif" alt="react-native-gallery-swiper" />
 </h1>
 
 #### :information_source: Learn more about React Native with project examples along with Cyber Security and Ethical Hacking at [LH LABS](https://www.luehangs.site).
@@ -406,7 +406,7 @@ Free and made possible along with costly maintenance and updates by [Lue Hang](h
 
 <br/>
 
-### :man: Contributors
+### :tophat: Contributors
 
 Contributors will be posted here.
 
