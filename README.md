@@ -6,11 +6,11 @@
 
 > An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
-> Check out the [docs](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) for a complete documentation.
+> Learn more about the installation and how to use this package in the updated [documentation](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) page.
 
 <br/>
 <br/>
-<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
 
 <br/>
 <br/>
@@ -43,12 +43,11 @@
 ### 3.  [Performance Optimization List Example](#watch-performance-optimization-list-example)
 ### 4.  [API](#nut_and_bolt-api)
 ### 5.  :books: [Props](#books-props)
-### 6.  [Scroll State and Events](#memo-scroll-state-and-events)
-### 7.  [Helpful Hints](#memo-helpful-hints)
-### 8.  [Example Project](#clapper-example-project)
-### 9.  [Author](#santa-author)
-### 10.  [Contribute](#clap-contribute)
-### 11.  [License](#page_facing_up-license)
+### 6.  [Helpful Hints](#memo-helpful-hints)
+### 7.  [Example Project](#clapper-example-project)
+### 8.  [Author](#santa-author)
+### 9.  [Contribute](#clap-contribute)
+### 10.  [License](#page_facing_up-license)
 
 <br/>
 <br/>
@@ -236,33 +235,6 @@ Props | Description | Type | Default
 <br/>
 <br/>
 <a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
-<br/>
-<br/>
-
-## :memo: Scroll state and events
-
-* `onPageScroll(event: { position: number, offset: number, fraction: number }) => void`
-
-    The event object carries following data: 
-
-    * `position: number`:  index of first page from the left that is currently visible.
-    * `offset: number`: value from range [0,1) describing stage between page transitions.
-    * `fraction: number`: means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
-
-* `onPageScrollStateChanged(state: string) => void`
-
-    Called when the page scrolling state has changed. The page scrolling state can be in 3 states:
-
-    * `'idle': string`: there is no interaction with the page scroller happening at the time.
-    * `'dragging': string`: there is currently an interaction with the page scroller.
-    * `'settling': string`: there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation.
-
-<br/>
-<br/>
-<br/>
-
----
-<br/>
 <br/>
 <br/>
 
