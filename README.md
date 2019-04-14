@@ -8,6 +8,13 @@
 
 > Learn more about the installation and how to use this package in the updated [documentation](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) page.
 
+- Supports smart rendering for **large lists** or small.
+- Includes guestures and important event listeners for pan, pinch, single tap and double tap.
+- Includes zoom mode.
+- Easily customizable.
+- Intelligent scrolling detection to cushion rough swipe guestures.
+- Supports both iOS and Android.
+
 <br/>
 <br/>
 <a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LH LABS"/></a>
