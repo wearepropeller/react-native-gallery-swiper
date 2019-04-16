@@ -4,9 +4,9 @@
     React Native Gallery Swiper
 </h1>
 
-> An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
+An easy and simple to use React Native component to render a high performant and easily customizable image gallery with common gestures like pan, pinch and double tap.  Supporting both iOS and Android. Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).
 
-> Learn more about the installation and how to use this package in the updated [documentation](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) page.
+Learn more about the installation and how to use this package in the updated [documentation](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper) page.
 
 - Supports smart rendering for **large lists** or small.
 - Includes guestures and important event listeners for pan, pinch, single tap and double tap.
@@ -50,7 +50,7 @@
 ### 3.  [Performance Optimization List Example](#watch-performance-optimization-list-example)
 ### 4.  [API](#nut_and_bolt-api)
 ### 5.  :books: [Props](#books-props)
-### 6.  [Helpful Hints](#memo-helpful-hints)
+### 6.  :books: [Methods](#books-methods)
 ### 7.  [Example Project](#clapper-example-project)
 ### 8.  [Author](#santa-author)
 ### 9.  [Contribute](#clap-contribute)
@@ -241,75 +241,55 @@ Props | Description | Type | Default
 
 <br/>
 <br/>
-<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
-<br/>
-<br/>
-
-## :memo: Helpful Hints
-
-:information_source: **Version \*1.2.0 update (or greater versions):**  `refPage` prop
-
-Props | Description | Type | Default
------- | ------ | ------ | ------
-`refPage` | The `ref` for the inner View Page. | `Function`
-
-Below is an example implementation of the `refPage` which works like a **React** `ref`.
-
-```javascript
-import GallerySwiper from "react-native-gallery-swiper";
-
-//...
-render() {
-    return (
-        <GallerySwiper
-            refPage={(component) => (this.gallerySwiper = component)}
-            images={[
-                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-blond-blonde-hair-478544.jpg" },
-                { source: require("yourApp/image.png"),
-                    dimensions: { width: 1080, height: 1920 } },
-                { source: { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-women-beauty-40901.jpg" } },
-                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg",
-                    dimensions: { width: 1080, height: 1920 } },
-                { URI: "https://luehangs.site/pic-chat-app-images/beautiful-blond-fishnet-stockings-48134.jpg" },
-                { url: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
-                { URL: "https://luehangs.site/pic-chat-app-images/attractive-balance-beautiful-186263.jpg" },
-            ]}
-        />
-    );
-}
-//...
-```
-
-<br/>
-<br/>
-<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
-<br/>
-<br/>
-
-### :memo: Some Useful Functions
-
-After implementing the `refPage={(component) => (this.gallerySwiper = component)}` property and the ``<GallerySwiper />`` component has been rendered.
-
-* this.gallerySwiper.`flingToPage(index: number, velocityX: number)`
-
-    This `Function` executes a "fling" to a page: 
-
-    * `index: number`: The **required** index of desired page.
-    * `velocityX: number`: The **required** velocity X and should be above `> 0.00`.
-
-* this.gallerySwiper.`scrollToPage(index: number, immediate: boolean)`
-
-    This `Function` executes a "scroll" to a page:
-
-    * `index: number`: The **required** index of desired page.
-    * `immediate: boolean`: Whether to go to page immediately without animation or not.  Default is `false`.
-
-<br/>
-<br/>
 <br/>
 
 ---
 <br/>
+<br/>
+<br/>
+
+
+# :books: Methods
+
+### :small_blue_diamond: ``flingToPage(params)``
+
+Scrolls to the following index with input velocity.
+
+<br/>
+
+#### Parameters:
+
+Name | Type | Required | Description
+------ | ------ | ------ | ------
+params | object | YES | See below.
+
+Valid params keys are:
+
+- "index" (number) - Index of desired page. Required.
+- "velocityX" (boolean) - Speed intensity > 0.00. Required.
+
+<br/>
+
+### :small_blue_diamond: ``scrollToPage(params)``
+
+Scrolls to the following index with or without animation.
+
+<br/>
+
+#### Parameters:
+
+Name | Type | Required | Description
+------ | ------ | ------ | ------
+params | object | YES | See below.
+
+Valid params keys are:
+
+- "index" (number) - Index of desired page. Required.
+- "immediate" (boolean) - Animated transition or not. Defaults to `false`.
+
+<br/>
+<br/>
+<a href="https://luehangs.site/marketplace/product/RN%20Posting%20Demo%20App%20Kit"><img src="https://luehangs.site/images/lh-mobile-strip.jpg" alt="LH LABS"/></a>
 <br/>
 <br/>
 
