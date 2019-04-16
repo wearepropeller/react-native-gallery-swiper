@@ -237,7 +237,7 @@ Props | Description | Type | Default
 `resistantStrVertical` | Resistant value for top and bottom panning (view transformer). `(dy: number) => number` **Version \*1.14.0 update**. | `Function`, `number` or `string` | `(dy) => (dy /= 3)`
 `maxOverScrollDistance` | A number used to determine final scroll position triggered by fling (view transformer). **Version \*1.16.0 update**. | `number` | `20`
 `removeClippedSubviews` | To improve scroll performance for large lists. **Version \*1.4.1 update**. | `boolean` | `true`
-`refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](#helpful-hints) | `Function`
+`refPage` | The `ref` for the inner View page. **Version \*1.2.0 update**. Learn more about this at the [helpful hints section](https://luehangs.site/lue_hang/projects/react-native-gallery-swiper#helpful-hints) | `Function`
 
 <br/>
 <br/>
@@ -247,7 +247,6 @@ Props | Description | Type | Default
 <br/>
 <br/>
 <br/>
-
 
 # :books: Methods
 
