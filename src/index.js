@@ -269,7 +269,7 @@ export default class GallerySwiper extends PureComponent {
     }
 
     getViewPagerInstance () {
-        return this.galleryViewPager;
+        return this._galleryViewPager;
     }
 
     onPageSelected (page) {
@@ -373,6 +373,16 @@ export default class GallerySwiper extends PureComponent {
         }
     }
 
+    flingToPage ({ index, velocityX }) {
+        this._galleryViewPager &&
+            this._galleryViewPager.flingToPage(index, velocityX);
+    }
+
+    scrollToPage ({ index, immediate }) {
+        this._galleryViewPager &&
+            this._galleryViewPager.scrollToPage(index, immediate);
+    }
+
     render () {
         let gestureResponder = this.gestureResponder;
 
@@ -396,7 +406,7 @@ export default class GallerySwiper extends PureComponent {
                 {...this.props}
                 flatListProps={flatListProps}
                 ref={(component) => {
-                    this.galleryViewPager = component;
+                    this._galleryViewPager = component;
                     this.props.refPage &&
                         this.props.refPage(component);
                 }}
