@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import GallerySwiper from "react-native-gallery-swiper";
+// import GallerySwiper from "./src";
 
 import testData from "./data";
 
@@ -65,12 +66,20 @@ export default class ReactNativeGallerySwiperExample extends React.PureComponent
         galleryIndex: 0
     }
 
+    componentDidMount() {
+        // dynamic initialPage
+        setTimeout(() => {
+            this.setState({ galleryIndex: 1 });
+        }, 2000);
+    }
+
     render() {
+        console.log("Data length total: ", testData.length);
         return (
             <View
                 style={styles.container}
             >
-                <Header
+                {/* <Header
                     renderPageHeader={(image, i) => {
                         return (
                             <View style={[styles.statusBarTop, styles.rowMiddleAlign]}>
@@ -95,7 +104,7 @@ export default class ReactNativeGallerySwiperExample extends React.PureComponent
                                         styles.profileSecondary,
                                         styles.whiteText
                                     ]}>
-                                        {image.description}
+                                        {image.description} - index: {i}
                                     </Text>
                                 </View>
                             </View>
@@ -103,16 +112,50 @@ export default class ReactNativeGallerySwiperExample extends React.PureComponent
                     }}
                     images={testData}
                     galleryIndex={this.state.galleryIndex}
-                />
+                /> */}
                 <GallerySwiper
-                    style={{ flex: 1, backgroundColor: "#000" }}
-                    sensitiveScroll={true}
+                    // sensitiveScroll={true}
+                    initialPage={this.state.galleryIndex}
+                    images={testData}
+                    // onPageSelected={
+                    //     (index) => this.setState({ galleryIndex: index })
+                    // }
+                    // imageComponent={(imageProps, d, i) => {
+                    //     // console.log(imageProps);
+                    //     return (
+                    //         <Image
+                    //             {...imageProps}
+                    //             // resizeMode="cover"
+                    //         />
+                    //     );
+                    // }}
+                    loadMinimal={true}
+                    loadMinimalSize={2}
+                    // onSingleTapConfirmed={() => console.log("1")}
+                    // onDoubleTapConfirmed={() => console.log("2")}
+                    // onLongPress={(i, j) => console.log(i, j)}
+                />
+                {/* <GallerySwiper
+                    // style={{ flex: 1, backgroundColor: "#000" }}
+                    // sensitiveScroll={true}
                     images={testData}
                     onPageSelected={
                         (index) => this.setState({ galleryIndex: index })
                     }
-                />
-                <Footer
+                    imageComponent={(imageProps, d, i) => {
+                        // console.log(imageProps);
+                        return (
+                            <Image
+                                {...imageProps}
+                                // resizeMode="cover"
+                            />
+                        );
+                    }}
+                    // onSingleTapConfirmed={() => console.log("1")}
+                    // onDoubleTapConfirmed={() => console.log("2")}
+                    // onLongPress={(i, j) => console.log(i, j)}
+                /> */}
+                {/* <Footer
                     renderPageFooter={(image, i) => {
                         return (
                             <View style={[styles.footerBottom, styles.colMiddleAlign]}>
@@ -137,7 +180,7 @@ export default class ReactNativeGallerySwiperExample extends React.PureComponent
                     }}
                     images={testData}
                     galleryIndex={this.state.galleryIndex}
-                />
+                /> */}
             </View>
         );
     }
